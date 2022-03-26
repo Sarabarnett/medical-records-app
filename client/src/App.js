@@ -3,8 +3,10 @@ import './App.css';
 
 function App() {
 
-  const apifun = () => {
-    fetch("/api/users")
+  const apifun = async () => {
+    const response = await fetch("/api/user")
+    const data = await response.json()
+    console.log(data);
   }
 
   return (
@@ -22,6 +24,7 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={apifun}></button>
       </header>
     </div>
   );
