@@ -1,12 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import API from './utils/API';
 
 function App() {
 
   const apifun = async () => {
-    const response = await fetch("/api/users")
-    const data = await response.json()
-    console.log(data);
+    try {
+      const response = await API.getUsers()
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
