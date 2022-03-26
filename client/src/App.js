@@ -4,7 +4,7 @@ import './App.css';
 function App() {
 
   const apifun = async () => {
-    const response = await fetch("/api/user")
+    const response = await fetch("/api/users")
     const data = await response.json()
     console.log(data);
   }
