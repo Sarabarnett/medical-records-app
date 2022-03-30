@@ -14,17 +14,11 @@ const typeDefs = gql`
     username: String
   }
 
-  type Auth {
-    token: ID!
-    user: User
-  }
-
   type Query {
     user(username: String): User
+    clinics(username: String): Clinic
     clinic(_id: ID!): Clinic
   }
-  type Mutation
-    user(username: String!, email: String!): user
 `;
 
 module.exports = typeDefs;
