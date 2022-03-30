@@ -1,14 +1,17 @@
 {
-<<<<<<< HEAD
-  "name": "medical-records-app",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "graphql": "^16.3.0",
+    "jwt-decode": "^3.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "5.0.0",
     "web-vitals": "^2.1.4"
   },
@@ -35,24 +38,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-=======
-  "name": "medical-records-application",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node server/index.js",
-    "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
-    "install": "cd server && npm i && cd ../client && npm i",
-    "build": "cd client && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "concurrently": "^7.0.0",
-    "dotenv": "^16.0.0"
->>>>>>> fe87589a2e69eda3b9158a392097a1717e45ea61
   }
 }
