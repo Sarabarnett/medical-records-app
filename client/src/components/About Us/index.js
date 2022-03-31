@@ -1,12 +1,13 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
+import './index.js';
 
 const AboutUs = () => {
   return (
-    <div>
-      <h1>Our Cool Super Story</h1>
+    <div id="AboutSection">
+      <h1 class="AboutHeader">Our Cool Super Story</h1>
 
-      <p>
+      <p id="AboutP">
         Blah, blah, blah 
         we came together for Project #3 despite crippling odds
         <br></br>
@@ -17,16 +18,18 @@ const AboutUs = () => {
         Here is how it works:
       </p>
 
-      <div>
+      <div id="AboutExDiv">
 
-        <h3>Save your existing medical information
-          <img src="http://"></img>
+        <h3 id="AboutEx">Save your existing medical information
+          <div> <img src=""></img> </div>
         </h3>
-        <h3>Upload your vaccines
-          <img src="http://"></img>
+
+        <h3 id="AboutEx">Upload your vaccines
+          <div> <img src=""></img> </div>
         </h3>
-        <h3>List your previous clinics
-          <img src="http://"></img>
+
+        <h3 id="AboutEx">List your previous clinics
+          <div> <img src=""></img> </div>
         </h3>
 
       </div>
