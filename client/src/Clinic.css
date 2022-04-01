@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 10px;
   padding: 1rem;
-  width: 35%;
+  width: 50%;
 }
 
 table {
@@ -27,16 +27,22 @@ td {
   background-color: rgb(207, 191, 43);
 }
 
-form {
+.inputClinic {
   display: flex;
   gap: 5px;
 }
 
-form td:last-child {
+.inputClinic td:last-child {
   display: flex;
   justify-content: space-evenly;
 }
 
 form * {
   font-size: 25px;
+}
+
+.vaccine-form{
+    min-width: 350px;
+    margin: 20px;
+    
 }

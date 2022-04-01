@@ -146,7 +146,7 @@ const Clinics = () => {
 
 
             <h2>Add</h2>
-            <form onSubmit={handleAddFormSubmit}>
+            <form class="inputClinic" onSubmit={handleAddFormSubmit}>
                 <input
                     type="text"
                     name="clinicName"
