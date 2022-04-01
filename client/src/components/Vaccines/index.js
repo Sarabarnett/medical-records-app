@@ -54,7 +54,7 @@ const Vaccines = ({ user }) => {
     return (
 
         <div className="vaccineContainer d-flex flex-wrap">
-            <Form className="w-50 vaccine-form" onSubmit={handleSubmit}>
+            <Form className="vaccine-form" onSubmit={handleSubmit}>
                 <div className="d-flex" >
                     <Form.Group className="mb-3 mr-3" >
                         <Form.Label>First Name</Form.Label>
@@ -115,7 +115,7 @@ const Vaccines = ({ user }) => {
             <div>
                 {user.vaccine.firstName ? (
                     <div>
-                        <div className="d-flex">
+                        <div className="d-flex renderedvac">
                             <p>first name:{user.vaccine.firstName}</p>
                             <p>last name:{user.vaccine.lastName}</p>
                         </div>
@@ -137,13 +137,13 @@ const Vaccines = ({ user }) => {
                                     <td>First dose</td>
                                     <td>{user.vaccine.firstDose.productName}</td>
                                     <td>{user.vaccine.firstDose.date}</td>
-                                    <td>{user.vaccine.firstDose.clinic}</td>
+                                    <td>{user.vaccine.firstDose.clinicSite}</td>
                                 </tr>
                                 <tr>
                                     <td>Second Dose</td>
                                     <td>{user.vaccine.secondDose.productName}</td>
                                     <td>{user.vaccine.secondDose.date}</td>
-                                    <td>{user.vaccine.secondDose.clinic}</td>
+                                    <td>{user.vaccine.secondDose.clinicSite}</td>
                                 </tr>
                             </tbody>
                         </Table>

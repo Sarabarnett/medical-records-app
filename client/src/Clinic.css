@@ -43,6 +43,10 @@ form * {
 
 .vaccine-form{
     min-width: 350px;
-    margin: 20px;
-    
+    margin: 80px;
+}
+
+.renderedvac{
+    display: flex;
+    justify-content: space-around;
 }

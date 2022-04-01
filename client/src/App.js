@@ -22,19 +22,19 @@ function App() {
         userName: '',
         email: '',
         vaccine: {
-          dob: '',
-          patientNumber: '',
-          firstName: '',
-          lastName: '',
+          dob: '02/22/1990',
+          patientNumber: '23222',
+          firstName: 'Steven',
+          lastName: 'Cruz',
           firstDose: {
-            productName: '',
-            date: '',
-            clinicSite: '',
+            productName: 'pfizer',
+            date: '01/22/2002',
+            clinicSite: 'valley',
           },
           secondDose: {
-            productName: '',
-            date: '',
-            clinicSite: '',
+            productName: 'pfizer',
+            date: '11/22/2022',
+            clinicSite: 'valley',
           }
         }
       }} />
