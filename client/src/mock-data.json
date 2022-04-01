@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "clinicName": "UofU",
+      "doctorName": "Dr. Cruz",
+      "phoneNumber": "801-860-7516"
+     
+    },
+    {
+      "id": 2,
+      "clinicName": "Valley Healt",
+      "doctorName": "Dr. Samudio",
+      "phoneNumber": "385-913-7516"
+    },
+    {
+      "id": 3,
+      "clinicName": "Jordan Valley",
+      "doctorName": "Dr. Barnett",
+      "phoneNumber": "801-962-7516"
+    },
+    {
+      "id": 4,
+      "clinicName": "WJ Clinic",
+      "doctorName": "Dr. Miller",
+      "phoneNumber": "333-962-7516"
+    }
+  ]

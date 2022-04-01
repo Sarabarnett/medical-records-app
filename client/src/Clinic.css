@@ -1,0 +1,49 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem;
+  width: 50%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ffffff;
+  text-align: left;
+  padding: 8px;
+  font-size: 32px;
+}
+
+th {
+  background-color: rgb(204, 35, 6);
+}
+
+td {
+  background-color: rgb(207, 191, 43);
+}
+
+.inputClinic {
+  display: flex;
+  gap: 5px;
+}
+
+.inputClinic td:last-child {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+form * {
+  font-size: 25px;
+}
+
+.vaccine-form{
+    min-width: 350px;
+    margin-right: 20px;
+    width: 100%;
+}
+
