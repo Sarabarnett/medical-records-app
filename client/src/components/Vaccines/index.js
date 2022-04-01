@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { Form, Button, Table } from "react-bootstrap";
 
 //  user {
@@ -42,16 +41,13 @@ const Vaccines = ({ user }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // format request body
-    // send POST/PUT request
-    // ONce response comes back request updated user info
   };
 
   return (
-    <div className="vaccineContainer d-flex flex-wrap">
-      <Form className="w-50 vaccine-form" onSubmit={handleSubmit}>
-        <div className="d-flex">
-          <Form.Group className="mb-3 mr-3">
+    <div>
+      <Form onSubmit={handleSubmit}>
+        <div>
+          <Form.Group>
             <Form.Label>First Name</Form.Label>
             <Form.Control
               type="text"
