@@ -43,6 +43,7 @@ form * {
 
 .vaccine-form{
     min-width: 350px;
-    margin: 20px;
-    
+    margin-right: 20px;
+    width: 100%;
 }
+
