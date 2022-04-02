@@ -16,50 +16,10 @@ const resolvers = {
       const oneClinic = await Clinic.findOne({ _id });
       return oneClinic;
     },
+    Vaccines: async (parent, { username }) => {
+      const vaccine = await Vaccine.findOne;
+    },
   },
-
-  // Mutation: {
-  //   addUser: async (parent, args) => {
-  //     const user = await User.create(args);
-  //     // const token = signToken(user);
-
-  //     return { user };
-  //   },
-  // login: async (parent, { email, password }) => {
-  //   const user = await User.findOne({ email });
-
-  //   if (!user) {
-  //     throw new AuthenticationError("Incorrect credentials");
-  //   }
-
-  //   const correctPw = await user.isCorrectPassword(password);
-
-  //   if (!correctPw) {
-  //     throw new AuthenticationError("Incorrect credentials");
-  //   }
-
-  //   const token = signToken(user);
-  //   return { token, user };
-  // },
-  //   addClinic: async (parent, args, context) => {
-  //     if (context.user) {
-  //       const clinic = await Clinic.create({
-  //         ...args,
-  //         username: context.user.username,
-  //       });
-
-  //       await User.findByIdAndUpdate(
-  //         { _id: context.user._id },
-  //         { $push: { clinic: clinic._id } },
-  //         { new: true }
-  //       );
-
-  //       return User;
-  //     }
-
-  //     throw new AuthenticationError("You need to be logged in!");
-  //   },
-  // },
 };
 
 module.exports = resolvers;

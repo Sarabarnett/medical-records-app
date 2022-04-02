@@ -13,6 +13,10 @@ const typeDefs = gql`
     createdAt: String
     username: String
   }
+  type Vaccines {
+    vaccineName: String
+    clinic: string
+  }
 
   type Query {
     user(username: String): User
