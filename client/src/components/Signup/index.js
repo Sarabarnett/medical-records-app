@@ -2,6 +2,14 @@ import React, { useState } from "react";
 // import { useMutation } from '@apollo/client';
 // import { ADD_USER } from "../utils/mutations";
 //import Auth from '../utils/auth';
+import '../../login-signup.css';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 
 const Signup = () => {
 
@@ -38,47 +46,60 @@ const Signup = () => {
 
 
   return(
-    <main className='flex-row justify-center mb-4'>
+    <main >
       {/* SIGNUP FORM */}
-      <div className='col-12 col-md-6'>
-        <div className='card'>
-          <h4 className='card-header'>Sign Up</h4>
-          <div className='card-body'>
-            <form >
-              <input
+      <div>
+      <Box
+        component="form"
+        sx={{
+          '& > :not(style)': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+        >
+        <Card sx={{ minWidth: 400 }}>
+          <CardContent>
+          <Typography sx={{ fontSize: 24 }} gutterBottom>
+            Signup
+          </Typography>
+          
+            <div>
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
                 className='form-input'
-                placeholder='Username'
+                label='Username'
                 name='username'
                 type='username'
-                id='username'
                 // value={formState.username}
                 // onChange={handleChange}
               />
-              <input
-                className='form-input'
-                placeholder='Email'
+              <TextField
+                id="outlined-basic"
+                variant="outlined"
+                label='Email Address'
                 name='email'
                 type='email'
-                id='email'
                 // value={formState.email}
                 // onChange={handleChange}
               />
-              <input
-                className='form-input'
-                placeholder='Password'
+              <TextField
+                id="outlined-basic"
+                label='Password'
                 name='password'
                 type='password'
-                id='password'
+                variant="outlined"
                 // value={formState.password}
                 // onChange={handleChange}
               />
-              <button className='btn d-block w-100' type='submit'>
-                Submit
-              </button>
-            </form>
+              <CardActions>
+                <Button variant="contained" size="medium">Submit</Button>
+              </CardActions>
+            </div>
             {/* {error && <div>Sign up failed.</div>} */}
-          </div>
-        </div>
+         </CardContent>
+        </Card>
+      </Box>
       </div>
     </main>
   )
