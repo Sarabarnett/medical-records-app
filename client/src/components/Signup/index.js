@@ -57,17 +57,34 @@ const Signup = () => {
         noValidate
         autoComplete="off"
         >
-        <Card sx={{ minWidth: 400 }}>
-          <CardContent>
-          <Typography sx={{ fontSize: 24 }} gutterBottom>
-            Signup
+        <Card 
+        sx={{ 
+          boxShadow: 6,
+          minWidth: 350,
+          border: 3,
+          borderColor: 'primary.main',
+          bgcolor: '#B3E5FC' 
+          }}>
+          <CardContent
+            sx={{
+              p: 5,
+              textAlign: 'center'
+            }}>
+          <Typography 
+          sx={{ fontSize: 28,
+          fontWeight: 'bold' }} 
+          gutterBottom>
+            SIGNUP
           </Typography>
           
-            <div>
+            <div className='form-input'>
               <TextField
+              sx={{
+                mb: 3,
+                bgcolor: 'white'
+              }}
                 id="outlined-basic"
                 variant="outlined"
-                className='form-input'
                 label='Username'
                 name='username'
                 type='username'
@@ -75,8 +92,13 @@ const Signup = () => {
                 // onChange={handleChange}
               />
               <TextField
+              sx={{
+                mb: 3,
+                bgcolor: 'white'
+              }}
                 id="outlined-basic"
                 variant="outlined"
+                className='form-input'
                 label='Email Address'
                 name='email'
                 type='email'
@@ -84,7 +106,12 @@ const Signup = () => {
                 // onChange={handleChange}
               />
               <TextField
+              sx={{
+                mb: 3,
+                bgcolor: 'white'
+              }}
                 id="outlined-basic"
+                className='form-input'
                 label='Password'
                 name='password'
                 type='password'
@@ -92,8 +119,12 @@ const Signup = () => {
                 // value={formState.password}
                 // onChange={handleChange}
               />
-              <CardActions>
-                <Button variant="contained" size="medium">Submit</Button>
+              <CardActions
+              sx={{
+                justifyContent: 'center'
+              }}>
+                <Button sx={{ fontSize: 18, fontWeight: 'medium'}}
+                variant="contained" size="medium">Submit</Button>
               </CardActions>
             </div>
             {/* {error && <div>Sign up failed.</div>} */}

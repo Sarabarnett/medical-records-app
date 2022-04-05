@@ -11,3 +11,14 @@ main {
   margin: 40px auto;
   padding: 20px;
 }
+
+.form {
+  justify-content: center;
+  padding: 20px;
+}
+
+.form-input {
+  margin: 15px auto;
+  padding: 10px;
+}
+
