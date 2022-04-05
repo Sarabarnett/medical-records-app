@@ -1,13 +1,24 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
-import './index.js';
+import { Link } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+
+const useStyles = makeStyles({
+  //css here 
+  h1: { 
+    fontSize: 60,
+    backgroundColor: 'violet'
+  }
+})
 
 const AboutUs = () => {
-  return (
-    <div id="AboutSection">
-      <h1 class="AboutHeader">Our Cool Super Story</h1>
+  // const classes = useStyles()
 
-      <p id="AboutP">
+  return (
+    <div>
+      <h1 >Our Cool Super Story</h1>
+
+      <p>
         Blah, blah, blah 
         we came together for Project #3 despite crippling odds
         <br></br>
@@ -18,17 +29,17 @@ const AboutUs = () => {
         Here is how it works:
       </p>
 
-      <div id="AboutExDiv">
+      <div>
 
-        <h3 id="AboutEx">Save your existing medical information
+        <h3>Save your existing medical information
           <div> <img src=""></img> </div>
         </h3>
 
-        <h3 id="AboutEx">Upload your vaccines
+        <h3>Upload your vaccines
           <div> <img src=""></img> </div>
         </h3>
 
-        <h3 id="AboutEx">List your previous clinics
+        <h3>List your previous clinics
           <div> <img src=""></img> </div>
         </h3>
 
