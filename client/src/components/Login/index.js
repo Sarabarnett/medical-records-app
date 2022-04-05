@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+// import validateEmail from '../../utils/helpers.js';
 // import { useMutation } from '@apollo/client';
 // import { LOGIN_USER } from "../../utils/mutations";
 //import Auth from '../utils/auth';
+import { Link } from "react-router-dom";
 import '../../login-signup.css';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -15,7 +17,7 @@ import TextField from '@mui/material/TextField';
 function Login() {
 
   const [formState, setFormState] = useState({ email: '', password: '' });
-  const { email, password } = formState;
+  // const { email, password } = formState;
   const [errorMessage, setErrorMessage] = useState('');
   // const [login, { error }] = useMutation(LOGIN_USER);
 
@@ -36,20 +38,25 @@ function Login() {
       } else {
         setErrorMessage('');
         } 
-      } else {
+      } 
+      else {
         if (!e.target.value.length) {
           setErrorMessage(`Password is required.`)
-        }else {
-        setErrorMessage('');
-      }
+        } else {
+          setErrorMessage('');
+        } 
     }
     
-    if (!errorMessage) {
-      setFormState({...formState, [e.target.name]: e.target.value });
-    }  
-  }
+    // if (!errorMessage) {
+      setFormState({
+        ...formState, 
+        [e.target.name]: e.target.value 
+      });
+    //}
+    };  
+  
 
-  // // submit form
+  // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -58,7 +65,7 @@ function Login() {
       email: '',
       password: '',
     });
-  }
+  };
 
 
 return (
@@ -102,8 +109,9 @@ return (
                 className='form-input'
                 label="Email Address" 
                 type="email" 
+                name="email"
                 variant="outlined"
-                value={email}
+                defaultValue={formState.email}
                 onBlur={handleChange}
               />
               <TextField
@@ -114,32 +122,34 @@ return (
                 id="outlined-basic" 
                 className='form-input'
                 label="Password" 
-                type="password" 
+                type="password"
+                name="password"
                 variant="outlined"
-                defaultValue={password}
+                defaultValue={formState.password}
                 onBlur={handleChange}
               />
+              { errorMessage && (
+              <Typography variant="button" display="block" gutterBottom>
+                {errorMessage}
+              </Typography>
+            )}
               <CardActions
               sx={{
                 justifyContent: 'center'
               }}>
+              <Link style={{ textDecoration: 'none' }} to="/userDashboard">
                 <Button sx={{ fontSize: 18, fontWeight: 'medium'}}
                 color="secondary" variant="contained" size="medium" onSubmit={handleFormSubmit}>Submit</Button>
+              </Link>
               </CardActions>
             </div>
-            {/* {error && <div>Login failed</div>} */}
           </CardContent>
         </Card>
       </Box>
-      { errorMessage && (
-        <div>
-          <p>{errorMessage}</p>
-        </div>
-      )}
       </div>
     </main>
 
 )
-}
+};
 
 export default Login;
