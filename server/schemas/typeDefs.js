@@ -13,9 +13,14 @@ const typeDefs = gql`
     createdAt: String
     username: String
   }
+  
+  type Auth {
+    token: ID!
+    user: User
+  }
 
   type Query {
-    user(username: String): User
+    user(username: String!): User
     clinics(username: String): Clinic
     clinic(_id: ID!): Clinic
   }
@@ -24,6 +29,8 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
   }
+
+  
 `;
 
 module.exports = typeDefs;
