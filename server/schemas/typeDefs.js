@@ -20,7 +20,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    user(username: String): User
+    user: User
     clinics(username: String): Clinic
     clinic(_id: ID!): Clinic
   }
