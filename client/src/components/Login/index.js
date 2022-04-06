@@ -5,7 +5,7 @@ import React, { useState } from "react";
 //import Auth from '../utils/auth';
 import { Link } from "react-router-dom";
 import '../../login-signup.css';
-// import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -13,7 +13,6 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-
 // import NineteenNinetySeven from '../../assets/fonts/NineteenNinetySeven.ttf';
 
 let theme = createTheme({
@@ -34,9 +33,9 @@ let theme = createTheme({
       main: '#607D8B',
     },
   },
-  // typography:{
-  //   fontFamily: 'NineteenNinetySeven, Comic Sans',
-  // },
+  typography:{
+    fontFamily: 'NineteenNinetySeven, Comic Sans',
+  },
   // components: {
   //   MuiCssBaseline: {
   //     styleOverrides: `
@@ -105,7 +104,7 @@ function Login() {
 
 
 return (
-  <ThemeProvider>
+  <ThemeProvider theme={theme}>
   <main>
     {/* LOGIN FORM */}
       <div>

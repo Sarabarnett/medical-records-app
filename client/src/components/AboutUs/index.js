@@ -1,15 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+// import { Link } from 'react-router-dom';
+// import Box from '@mui/material/Box';
+// import Typography from '@mui/material/Typography';
 
-const useStyles = makeStyles({
-  //css here 
-  h1: { 
-    fontSize: 60,
-    backgroundColor: 'violet'
-  }
-})
+
 
 const AboutUs = () => {
   // const classes = useStyles()
@@ -31,7 +25,7 @@ const AboutUs = () => {
 
       <div>
 
-        <h3>Save your existing medical information
+        {/* <h3>Save your existing medical information
           <div> <img src=""></img> </div>
         </h3>
 
@@ -41,7 +35,7 @@ const AboutUs = () => {
 
         <h3>List your previous clinics
           <div> <img src=""></img> </div>
-        </h3>
+        </h3> */}
 
       </div>
 
