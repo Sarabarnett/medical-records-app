@@ -8,4 +8,5 @@ query user($username: String!) {
     username
     email
   }
-  `;
+}
+`;
