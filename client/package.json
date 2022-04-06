@@ -4,19 +4,12 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     "@emotion/react": "^11.8.2",
     "@emotion/style": "^0.8.0",
-=======
     "@apollo/client": "^3.5.10",
-    "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
->>>>>>> d13e6e2cc6196933988e70996bce81a6c9a76cdc
     "@mui/material": "^5.5.3",
-=======
-    "@apollo/client": "^3.5.10",
->>>>>>> sc-branch
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
