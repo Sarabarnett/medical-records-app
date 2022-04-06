@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 
+<<<<<<< HEAD
 //need to correct strings to correct attribute
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -44,4 +45,28 @@ export const ADD_CLINIC = gql`
         username
       }
     }
+=======
+export const LOGIN_USER = gql`
+mutation login($email: String!, $password: String!) {
+  login(email: $email, password: $password) {
+    token
+    user {
+      _id
+      username
+    }
+  }
+}
+`;
+
+export const ADD_USER = gql`
+  mutation addUser($username: String!, $email: String!, $password: String!) {
+    addUser(username: $username, email: $email, password: $password) {
+      token
+      user {
+        _id
+        username
+      }
+    }
+  }
+>>>>>>> d13e6e2cc6196933988e70996bce81a6c9a76cdc
   `;

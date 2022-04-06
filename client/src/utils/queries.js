@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { gql } from '@apollo/client';
 
 export const QUERY_ME = gql`
@@ -25,3 +26,17 @@ export const QUERY_ME = gql`
 //     }
 //   }
 // `;
+=======
+import { gql } from "@apollo/client";
+
+
+export const QUERY_USER = gql`
+query user($username: String!) {
+  user (username: $username) {
+    _id
+    username
+    email
+  }
+}
+`;
+>>>>>>> d13e6e2cc6196933988e70996bce81a6c9a76cdc

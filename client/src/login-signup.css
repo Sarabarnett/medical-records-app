@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.form {
+  justify-content: center;
+  padding: 20px;
+}
+
+.form-input {
+  margin: 15px auto;
+  padding: 10px;
+}
+

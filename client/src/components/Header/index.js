@@ -1,4 +1,4 @@
-// import React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 // import Auth from "../../utils/auth";
 
@@ -8,11 +8,19 @@ const Header = () => {
   // Auth.logout();
   // };
   return (
-    <header className="bg-secondary mb-4 py-2 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center" />
-      <Link to="/login">Login</Link>
-      <Link to="/signup">Signup</Link>)
-    </header>
+    <header >
+      <div >
+      <Link style={{ textDecoration: 'none' }} to="/">
+        <h1>OCSS Medical Records Cloud</h1>
+      </Link>
+      
+      <nav>
+        <Link style={{ textDecoration: 'none' }} to="/about">About Us</Link>
+        <Link style={{ textDecoration: 'none' }} to="/login">Login</Link>
+        <Link style={{ textDecoration: 'none' }} to="/signup">Signup</Link>
+      </nav>
+    </div>
+  </header>
   );
 };
 
