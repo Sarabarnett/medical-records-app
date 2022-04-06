@@ -8,6 +8,9 @@ const userSchema = new Schema({
     allowNull: false,
     trim: true,
   },
+  dob: {
+    type: String,
+  },
   email: {
     type: String,
     required: true,
@@ -19,6 +22,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
+ 
 });
 
 // set up pre-save middleware to create password
