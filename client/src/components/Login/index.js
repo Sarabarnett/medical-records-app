@@ -14,6 +14,41 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 
+// import NineteenNinetySeven from '../../assets/fonts/NineteenNinetySeven.ttf';
+
+let theme = createTheme({
+  palette: {
+    primary: {
+      main: '#28D5CF',
+    },
+    secondary: {
+      main: '#F12B95',
+    },
+    tertiary: {
+      main: '#F7EA34',
+    },
+    quaternary: {
+      main: '#F89514'
+    },
+    quinary: {
+      main: '#607D8B',
+    },
+  },
+  // typography:{
+  //   fontFamily: 'NineteenNinetySeven, Comic Sans',
+  // },
+  // components: {
+  //   MuiCssBaseline: {
+  //     styleOverrides: `
+  //       @font-face {
+  //         font-family: 'Raleway';
+  //         font-style: normal;
+  //         src: local('NineteenNinetySeven'), url(${NineteenNinetySeven}) format('tff');
+  //       }`,
+  //     },
+  //   },
+});
+
 
 function Login() {
 
