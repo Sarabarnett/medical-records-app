@@ -1,5 +1,4 @@
 const { Schema, model } = require("mongoose");
-const dateFormat = require("../utils/dateFormat");
 
 const clinicSchema = new Schema({
   clinicName: {
@@ -13,9 +12,13 @@ const clinicSchema = new Schema({
     default: Date.now(),
     get: (timestamp) => dateFormat(timestamp),
   },
-  userName: {
+  primaryDoctor: {
     type: String,
-    required: true,
+    required: "If this is not your Primary care provider, please enter N/a",
+  },
+  phoneNumber: {
+    type: Int,
+    required: "Please provide a valid phone number",
   },
 });
 
