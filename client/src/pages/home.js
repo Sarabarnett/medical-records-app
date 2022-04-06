@@ -9,6 +9,25 @@ import Header from '../components/Header'
 //log in/log out renders when clicked in nav bar
 //footer and nav bar on each
 
+const Homepage = () => {
+  // const medRecords = vaccine, clinics, records
+
+  const loggedIn = Auth.loggedIn();
+
+return(
+  <main>
+    <div> <Header /> </div>
+    {/*login | logout */}
+    {/* <clinics, vaccines, medical records /> */}
+
+
+    <AboutUs />
+
+    <div> <Footer /> </div>
+  </main>
+)
+
+}
 
 
 
