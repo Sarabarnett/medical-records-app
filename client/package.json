@@ -5,6 +5,7 @@
   "proxy": "http://localhost:3001",
   "dependencies": {
     "@mui/material": "^5.5.3",
+
     "@emotion/react": "^11.8.2",
     "@emotion/style": "^0.8.0",
     "@apollo/client": "^3.5.10",
