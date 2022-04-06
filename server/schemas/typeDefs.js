@@ -18,22 +18,15 @@ const typeDefs = gql`
   }
 
   type Vaccine {
-    firstDoseProductName: String
-    firstDoseDate: String
-    firstDoseClinic: String
-    secondDoseProductName: String
-    secondDoseDate: String
-    secondDoseClinic: String
+ vaccineName: String
+ administeredDate: String
+ location: String
   }
 
   input VaccineInput {
-    firstDoseProductName: String
-    firstDoseDate: String
-    firstDoseClinic: String
-    secondDoseProductName: String
-    secondDoseDate: String
-    secondDoseClinic: String
-  }
+    vaccineName: String
+    administeredDate: String
+    location: String
 
 
   type Auth{
@@ -45,13 +38,14 @@ const typeDefs = gql`
     me(username: String): User
     clinics(username: String): [Clinic]
     clinic(_id: ID!): Clinic
+    getVaccine: Vaccine
   }
 
   type Mutation{
     addUser(username: String, email: String, password: String): Auth
     login(email: String, password: String): Auth
     addClinic(username: String!,clinicname: String!):User
-    addVaccine(vaccinedata: VaccineInput, username: String):User
+  addVaccine: Vaccine
   }
   
 

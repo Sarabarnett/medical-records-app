@@ -17,6 +17,7 @@ const resolvers = {
       const oneClinic = await Clinic.findOne({ _id });
       return oneClinic;
     },
+    vaccine: async (parent, {}) => {}
   },
 
   Mutation: {
