@@ -4,6 +4,7 @@ import Vaccines from "../Vaccines";
 import Clinics from "../Clinics";
 import MedicalRecords from "../MedicalRecords";
 
+
 const Dashboard = () => {
   return (
     <>

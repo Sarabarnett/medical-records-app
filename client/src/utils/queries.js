@@ -1,32 +1,3 @@
-<<<<<<< HEAD
-import { gql } from '@apollo/client';
-
-export const QUERY_ME = gql`
-  {
-    me {
-      _id
-      username
-      email
-      vaccines
-      medicalrecords
-      clinics
-    }
-  }
-`;
-
-// export const QUERY_ME_BASIC = gql`
-//   {
-//     me {
-//       _id
-//       username
-//       email
-//       vaccines
-//       medicalrecords
-//       clinics
-//     }
-//   }
-// `;
-=======
 import { gql } from "@apollo/client";
 
 
@@ -39,4 +10,30 @@ query user($username: String!) {
   }
 }
 `;
->>>>>>> d13e6e2cc6196933988e70996bce81a6c9a76cdc
+
+
+export const GET_CLINICS = gql`
+query getclinics($username: String) {
+    clinics (username: $username) {
+      clinicname
+      _id
+    }
+  }`
+
+  export const GET_ME = gql`
+  query Query($username: String) {
+    me(username: $username) {
+      _id
+      username
+      email
+      vaccine {
+        firstDoseProductName
+        firstDoseDate
+        secondDoseDate
+        secondDoseProductName
+        firstDoseClinic
+        secondDoseClinic
+      }
+    }
+  }`
+

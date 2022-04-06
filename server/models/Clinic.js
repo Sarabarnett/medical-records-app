@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 const dateFormat = require("../utils/dateFormat");
 
 const clinicSchema = new Schema({
-  clinicName: {
+  clinicname: {
     type: String,
     required: "Please provide a clinic for your records",
     minlength: 1,
@@ -13,10 +13,18 @@ const clinicSchema = new Schema({
     default: Date.now(),
     get: (timestamp) => dateFormat(timestamp),
   },
-  userName: {
+  username: {
     type: String,
     required: true,
   },
+  doctor: {
+    type: String,
+    
+  },
+  phonenumber: {
+    type: String,
+    
+  }
 });
 
 const Clinic = model("Clinic", clinicSchema);
