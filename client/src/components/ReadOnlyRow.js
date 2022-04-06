@@ -4,8 +4,8 @@ const ReadOnlyRow = ({contact, handleEditClick, handleDeleteClick }) => {
   return (
     <tr>
     <td>{contact.clinicName}</td>
-    <td>{contact.doctorName}</td>
-    <td>{contact.phoneNumber}</td>
+    <td>{contact.doctor}</td>
+    <td>{contact.phonenumber}</td> 
     <td>
     <button 
     type="button" 
@@ -13,7 +13,7 @@ const ReadOnlyRow = ({contact, handleEditClick, handleDeleteClick }) => {
     >
         Edit
     </button>
-    <button type="button" onClick={()=> handleDeleteClick(contact.id)}>Delete</button>
+    <button type="button" onClick={()=> handleDeleteClick(contact._id)}>Delete</button>
     </td>
 </tr>
   )

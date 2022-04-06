@@ -1,19 +1,26 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import "../../Clinic.css";
 import data from "../../mock-data.json";
 import { nanoid } from "nanoid";
 import ReadOnlyRow from "../ReadOnlyRow";
 import EditableRow from "../EditableRow";
+import {GET_CLINICS} from "../../utils/queries"
+import {useQuery} from "@apollo/client"
 //import { Link } from 'react-router-dom';
 //import  { Form } from 'react-bootstrap'
 
 const Clinics = () => {
-  const [contacts, setContacts] = useState(data);
+  const [contacts, setContacts] = useState([]);
   const [addFormData, setAddFormData] = useState({
     clinicName: "",
     doctorName: "",
     phoneNumber: "",
   });
+
+const {loading, error, data } = useQuery(GET_CLINICS, {variables: {username:"joe"}});
+console.log("clinicdata", data)
+
+
 
   const [editFormData, setEditFormData] = useState({
     clinicName: "",
@@ -21,6 +28,18 @@ const Clinics = () => {
     phoneNumber: "",
   });
   const [editContactId, setEditContactId] = useState(null);
+
+useEffect(() => {
+// will fetch clinics from server/DB then put into state
+const clinicStorage = localStorage.getItem('clinics')
+if (!clinicStorage) {
+    localStorage.setItem('clinics', JSON.stringify(data))
+    setContacts(data);
+} else {
+    setContacts(JSON.parse(clinicStorage))
+}
+},[])
+
 
   const handleAddFormChange = (event) => {
     event.preventDefault();
@@ -56,6 +75,9 @@ const Clinics = () => {
     };
     const newContacts = [...contacts, newContact];
     setContacts(newContacts);
+    const clinicStorage = JSON.parse(localStorage.getItem('clinics'))
+    clinicStorage.push(newContact)
+    localStorage.setItem('clinics', JSON.stringify(clinicStorage));
   };
 
   const handleEditFormSubmit = (event) => {
@@ -118,9 +140,9 @@ const Clinics = () => {
             </tr>
           </thead>
           <tbody>
-            {contacts.map((contact) => (
+            {data && data.clinics.map((contact) => (
               <Fragment>
-                {editContactId === contact.id ? (
+                {editContactId === contact._id ? (
                   <EditableRow
                     editFormData={editFormData}
                     handleEditFormChange={handleEditFormChange}
@@ -140,7 +162,7 @@ const Clinics = () => {
       </form>
 
       <h2>Add</h2>
-      <form class="inputClinic" onSubmit={handleAddFormSubmit}>
+      <form className="inputClinic" onSubmit={handleAddFormSubmit}>
         <input
           type="text"
           name="clinicName"

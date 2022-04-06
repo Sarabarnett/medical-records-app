@@ -5,6 +5,7 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
+    vaccine: [Vaccine]
   }
 
   type Clinic {
@@ -21,14 +22,51 @@ const typeDefs = gql`
 
   type Query {
     user: User
-    clinics(username: String): Clinic
-    clinic(_id: ID!): Clinic
+    clinicname: String
+    createdAt: String
+    username: String
+    doctor: String
+    phonenumber: String
   }
 
-  type Mutation {
-    login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): Auth
+  type Vaccine {
+ vaccineName: String
+ administeredDate: String
+ location: String
   }
+
+  input VaccineInput {
+    vaccineName: String
+    administeredDate: String
+    location: String
+
+
+  type Auth{
+    token: ID
+    user: User
+  }
+  
+  type Auth {
+    token: ID!
+    user: User
+  }
+
+  type Query {
+    user(username: String!): User
+    clinics(username: String): Clinic
+    me(username: String): User
+    clinic(_id: ID!): Clinic
+    getVaccine: Vaccine
+  }
+
+  type Mutation{
+    addUser(username: String, email: String, password: String): Auth
+    login(email: String, password: String): Auth
+    addClinic(username: String!,clinicname: String!):User
+  addVaccine: Vaccine
+  }
+  
+
 `;
 
 module.exports = typeDefs;

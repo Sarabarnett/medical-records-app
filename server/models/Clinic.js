@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const clinicSchema = new Schema({
-  clinicName: {
+  clinicname: {
     type: String,
     required: "Please provide a clinic for your records",
     minlength: 1,
@@ -19,6 +19,12 @@ const clinicSchema = new Schema({
   phoneNumber: {
     type: Int,
     required: "Please provide a valid phone number",
+  },
+  doctor: {
+    type: String,
+  },
+  phonenumber: {
+    type: String,
   },
 });
 

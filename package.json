@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server/index.js",
-    "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,10 +14,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
+    "@fontsource/roboto": "^4.5.5",
+    "@material-ui/core": "^4.12.3",
     "@mui/material": "^5.5.3",
+    "@mui/styles": "^5.5.3",
+
+    "@mui/styled-engine-sc": "^5.5.2",
+
+
     "concurrently": "^7.0.0",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "styled-components": "^5.3.5"
   }
 }

@@ -1,84 +1,155 @@
 import React, { useState } from "react";
+// import validateEmail from '../../utils/helpers.js';
 // import { useMutation } from '@apollo/client';
-// import { LOGIN_USER } from "../utils/mutations";
+// import { LOGIN_USER } from "../../utils/mutations";
 //import Auth from '../utils/auth';
+import { Link } from "react-router-dom";
+import '../../login-signup.css';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import TextField from '@mui/material/TextField';
 
-const Login = () => {
 
-  // const [formState, setFormState] = useState({ email: '', password: '' });
+function Login() {
+
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  // const { email, password } = formState;
+  const [errorMessage, setErrorMessage] = useState('');
   // const [login, { error }] = useMutation(LOGIN_USER);
 
-  // // update state based on form input changes
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target;
+  //validate email function
+  function validateEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
 
-  //   setFormState({
-  //     ...formState,
-  //     [name]: value,
-  //   });
-  // };
 
-  // // submit form
-  // const handleFormSubmit = async (event) => {
-  //   event.preventDefault();
+  // update state based on form input changes
+  const handleChange = (e) => {
+    if (e.target.name === 'email') {
+      const validEmail = validateEmail(e.target.value);
+      console.log(validEmail);
+      if (!validEmail) {
+       setErrorMessage("Please enter a valid email address.");
+      } else {
+        setErrorMessage('');
+        } 
+      } 
+      else {
+        if (!e.target.value.length) {
+          setErrorMessage(`Password is required.`)
+        } else {
+          setErrorMessage('');
+        } 
+    }
+    
+    // if (!errorMessage) {
+      setFormState({
+        ...formState, 
+        [e.target.name]: e.target.value 
+      });
+    //}
+    };  
+  
 
-  //   try {
-  //     const { data } = await login({
-  //       variables: {...formState }
-  //     });
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
 
-  //     // Auth.login(data.login.token);
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-
-  //   // clear form values
-  //   setFormState({
-  //     email: '',
-  //     password: '',
-  //   });
-  // };
-
+    // clear form values
+    setFormState({
+      email: '',
+      password: '',
+    });
+  };
 
 
 return (
-  <main className='flex-row justify-center mb-4'>
+  <main >
     {/* LOGIN FORM */}
-      <div className='col-12 col-md-6'>
-        <div className='card'>
-          <h4 className='card-header'>Login</h4>
-          <div className='card-body'>
-            <form >
-              <input
+      <div>
+      <Box
+        className="form"
+        component="form"
+        sx={{
+          '& > :not(style)': { m: 1, width: '25ch' },
+        }}
+        autoComplete="off"
+        >
+        <Card 
+        sx={{ 
+          bgcolor: '#E1BEE7',
+          minWidth: 350,
+          boxShadow: 6,
+          border: 3,
+          borderColor: 'secondary.main'
+          }}>
+          <CardContent
+          sx={{
+            p: 5,
+            textAlign: 'center'
+          }}>
+          <Typography 
+          sx={{ fontSize: 28,
+            fontWeight: 'bold'}} 
+            gutterBottom>
+            LOGIN
+          </Typography>
+            <div className='form-input' >
+              <TextField
+              sx={{
+                mb: 3,
+                bgcolor: 'white'
+              }}
+                id="outlined-basic" 
                 className='form-input'
-                placeholder='Email Address'
-                name='email'
-                type='email'
-                id='email'
-                // value={formState.email}
-                // onChange={handleChange}
+                label="Email Address" 
+                type="email" 
+                name="email"
+                variant="outlined"
+                defaultValue={formState.email}
+                onBlur={handleChange}
               />
-              <input
+              <TextField
+              sx={{
+                mb: 3,
+                bgcolor: 'white'
+              }}
+                id="outlined-basic" 
                 className='form-input'
-                placeholder='Password'
-                name='password'
-                type='password'
-                id='password'
-                // value={formState.password}
-                // onChange={handleChange}
+                label="Password" 
+                type="password"
+                name="password"
+                variant="outlined"
+                defaultValue={formState.password}
+                onBlur={handleChange}
               />
-              <button className='btn d-block w-100' type='submit'>
-                Submit
-              </button>
-            </form>
-            {/* {error && <div>Login failed</div>} */}
-          </div>
-        </div>
+              { errorMessage && (
+              <Typography variant="button" display="block" gutterBottom>
+                {errorMessage}
+              </Typography>
+            )}
+              <CardActions
+              sx={{
+                justifyContent: 'center'
+              }}>
+              <Link style={{ textDecoration: 'none' }} to="/userDashboard">
+                <Button sx={{ fontSize: 18, fontWeight: 'medium'}}
+                color="secondary" variant="contained" size="medium" onSubmit={handleFormSubmit}>Submit</Button>
+              </Link>
+              </CardActions>
+            </div>
+          </CardContent>
+        </Card>
+      </Box>
       </div>
     </main>
 
 )
-
 };
 
 export default Login;
