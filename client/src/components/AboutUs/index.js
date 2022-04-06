@@ -3,13 +3,6 @@ import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-const useStyles = makeStyles({
-  //css here 
-  h1: { 
-    fontSize: 60,
-    backgroundColor: 'violet'
-  }
-})
 
 const AboutUs = () => {
   // const classes = useStyles()

@@ -1,5 +1,5 @@
 
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 //need to correct strings to correct attribute
 export const LOGIN_USER = gql`
@@ -51,7 +51,7 @@ export const ADD_USER = gql`
   `;
 
 // post put delete
-import { gql } from "@apollo/client";
+
 
 export const ADD_VACCINE = gql`
 mutation AddVaccine($vaccinedata: VaccineInput, $username: String) {

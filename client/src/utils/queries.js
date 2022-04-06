@@ -10,3 +10,11 @@ query user($username: String!) {
   }
 }
 `;
+
+export const GET_CLINICS = gql`
+
+`;
+
+export const GET_ME = gql`
+
+`;
