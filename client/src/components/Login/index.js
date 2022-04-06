@@ -5,6 +5,7 @@ import React, { useState } from "react";
 //import Auth from '../utils/auth';
 import { Link } from "react-router-dom";
 import '../../login-signup.css';
+// import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -69,7 +70,8 @@ function Login() {
 
 
 return (
-  <main >
+  <ThemeProvider>
+  <main>
     {/* LOGIN FORM */}
       <div>
       <Box
@@ -82,11 +84,11 @@ return (
         >
         <Card 
         sx={{ 
-          bgcolor: '#E1BEE7',
+          bgcolor: '#A3EEEB',
           minWidth: 350,
           boxShadow: 6,
           border: 3,
-          borderColor: 'secondary.main'
+          borderColor: 'secondary'
           }}>
           <CardContent
           sx={{
@@ -94,7 +96,10 @@ return (
             textAlign: 'center'
           }}>
           <Typography 
-          sx={{ fontSize: 28,
+          sx={{ 
+            // fontFamily: 'NineteenNinetySeven',
+            color: 'secondary',
+            fontSize: 28,
             fontWeight: 'bold'}} 
             gutterBottom>
             LOGIN
@@ -148,7 +153,7 @@ return (
       </Box>
       </div>
     </main>
-
+ </ThemeProvider>
 )
 };
 
