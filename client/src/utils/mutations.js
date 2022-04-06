@@ -15,15 +15,6 @@ export const LOGIN_USER = gql`
 `;
 
 //add_vaccine, add_xxx, add_xxx
-export const ADD_VACCINE = gql`
-  mutation addVaccine($Vaccines: String!) {
-    addVaccine(Vaccine: $Vaccine) {
-      _id
-      createdAt
-      username
-    }
-  }
-`;
 
 export const ADD_RECORDS = gql`
   mutation addRecords($Records: String!) {
@@ -57,9 +48,6 @@ export const ADD_USER = gql`
       }
     }
   }
-<<<<<<< HEAD
-  `;
-=======
   `;
 
 // post put delete
@@ -82,4 +70,3 @@ mutation AddVaccine($vaccinedata: VaccineInput, $username: String) {
     }
   }`
 
->>>>>>> develop
