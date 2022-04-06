@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const VaccineSchema = new Schema({
+const vaccineSchema = new Schema({
   //This schema is similar to a USIS database
   // this is for Users who log into the website
 
@@ -12,7 +12,14 @@ const VaccineSchema = new Schema({
   vaccineName: {
     type: String,
   },
-  administratedDate: {
+  administedDate: {
+    type: String,
+  },
+  location: {
     type: String,
   },
 });
+
+const Vaccines = model("Vaccines", vaccineSchema);
+
+module.exports = Vaccines;
