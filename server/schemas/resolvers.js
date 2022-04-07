@@ -4,23 +4,24 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    user: async (parent, {username}) => {
-      return User.findOne({ username });
-    },
     me: async (parent, { username }) => {
-      return User.findOne({username});
+      if (context.user) {
+        const userData = user.findOne({ _id: context.user.id })
+        return userData
+      }
+      throw new AuthenticationError("Not logged in")
     },
-    clinics: async (parent, { username }, context) => {
-      const params = username ? { username } : {};
-      console.log("params", params)
-      const clinicName = await Clinic.find(params).sort({ createdAt: -1 });
-      return clinicName;
+
+    clinics: async (parent, { _id }) => {
+      if (context.user) {
+        const clinicName = await Clinic.find(params).sort({ createdAt: -1 });
+        return clinicName;
+      }
+
     },
-    clinic: async (parent, { _id }) => {
-      const oneClinic = await Clinic.findOne({ _id });
-      return oneClinic;
-    },
-    vaccine: async (parent, {}) => {}
+    vaccine: async (parent, { _id }) => {
+      return Vaccine.findOne({ _id })
+    }
   },
 
   Mutation: {
@@ -65,20 +66,18 @@ const resolvers = {
       //   throw new AuthenticationError("You need to be logged in!");
     },
 
-    addVaccine: async(parent,args, context) => {
-
-     await User.findOneAndUpdate(
-        { username: args.username },
-        { $unset: {vaccine: ''}},
-        { new: true }
-      )
-      const vaccineData = await User.findOneAndUpdate(
-        { username: args.username },
-        { $push: {vaccine: args.vaccinedata }},
-        { new: true }
-      )
-      return vaccineData
-   
+    addVaccine: async (parent, args, context) => {
+      if (context.user) {
+        const vaccine = await Vaccines.create({ ...args, username: context.username })
+    
+        await User.findOneAndUpdate(
+          { username: args.username },
+          { $unset: { vaccine: '' } },
+          { $push: { vaccine: args.vaccinedata } },
+          { new: true }
+        )
+        return vaccineData
+      }
     },
   },
 };
