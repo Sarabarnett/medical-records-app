@@ -60,7 +60,7 @@ const Dashboard = () => {
                 component="div"
                 color="#F7EA34"
               >
-                Welcome back, "NAME"!
+                Welcome back!
               </Typography>
 
               <Box>
