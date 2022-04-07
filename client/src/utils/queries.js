@@ -1,25 +1,32 @@
 import { gql } from "@apollo/client";
 export const QUERY_USER = gql`
-query user($username: String!) {
-  user (username: $username) {
-    _id
-    username
-    email
-  }
-}
-`;
-export const GET_CLINICS = gql`
-query getclinics {
-    clinics{
-      clinicname
+  query user($username: String!) {
+    user(username: $username) {
       _id
+      username
+      email
+      password
     }
-  }`;
-  export const GET_ME = gql`
+  }
+`;
+
+export const GET_ME = gql`
   query Query($username: String) {
     me(username: $username) {
       _id
       username
       email
     }
-  }`;
+  }
+`;
+
+export const GET_CLINICS = gql`
+  query clinics($username: String) {
+    clinics(username: $username) {
+      clinicname
+      _id
+      primaryDoctor
+      phoneNumber: Int
+    }
+  }
+`;
