@@ -193,12 +193,6 @@ const Vaccines = ({ user }) => {
                   <td>{cardForm.firstDoseDate}</td>
                   <td>{cardForm.firstDoseClinic}</td>
                 </tr>
-                <tr>
-                  <td>Second Dose</td>
-                  <td>{cardForm.secondDoseProductName}</td>
-                  <td>{cardForm.secondDoseDate}</td>
-                  <td>{cardForm.secondDoseClinic}</td>
-                </tr>
               </tbody>
             </Table>
           </div>
