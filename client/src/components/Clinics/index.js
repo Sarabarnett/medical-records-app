@@ -4,8 +4,8 @@ import data from "../../mock-data.json";
 import { nanoid } from "nanoid";
 import ReadOnlyRow from "../ReadOnlyRow";
 import EditableRow from "../EditableRow";
-import {GET_CLINICS} from "../../utils/queries"
-import {useQuery} from "@apollo/client"
+import { GET_CLINICS } from "../../utils/queries";
+import { useQuery } from "@apollo/client";
 //import { Link } from 'react-router-dom';
 //import  { Form } from 'react-bootstrap'
 
@@ -17,10 +17,10 @@ const Clinics = () => {
     phoneNumber: "",
   });
 
-const {loading, error, data } = useQuery(GET_CLINICS, {variables: {username:"joe"}});
-console.log("clinicdata", data)
-
-
+  const { loading, error, data } = useQuery(GET_CLINICS, {
+    variables: { username: "joe" },
+  });
+  console.log("clinicdata", data);
 
   const [editFormData, setEditFormData] = useState({
     clinicName: "",
@@ -29,17 +29,16 @@ console.log("clinicdata", data)
   });
   const [editContactId, setEditContactId] = useState(null);
 
-useEffect(() => {
-// will fetch clinics from server/DB then put into state
-const clinicStorage = localStorage.getItem('clinics')
-if (!clinicStorage) {
-    localStorage.setItem('clinics', JSON.stringify(data))
-    setContacts(data);
-} else {
-    setContacts(JSON.parse(clinicStorage))
-}
-},[])
-
+  useEffect(() => {
+    // will fetch clinics from server/DB then put into state
+    const clinicStorage = localStorage.getItem("clinics");
+    if (!clinicStorage) {
+      localStorage.setItem("clinics", JSON.stringify(data));
+      setContacts(data);
+    } else {
+      setContacts(JSON.parse(clinicStorage));
+    }
+  }, []);
 
   const handleAddFormChange = (event) => {
     event.preventDefault();
@@ -75,9 +74,9 @@ if (!clinicStorage) {
     };
     const newContacts = [...contacts, newContact];
     setContacts(newContacts);
-    const clinicStorage = JSON.parse(localStorage.getItem('clinics'))
-    clinicStorage.push(newContact)
-    localStorage.setItem('clinics', JSON.stringify(clinicStorage));
+    const clinicStorage = JSON.parse(localStorage.getItem("clinics"));
+    clinicStorage.push(newContact);
+    localStorage.setItem("clinics", JSON.stringify(clinicStorage));
   };
 
   const handleEditFormSubmit = (event) => {
@@ -140,23 +139,24 @@ if (!clinicStorage) {
             </tr>
           </thead>
           <tbody>
-            {data && data.clinics.map((contact) => (
-              <Fragment>
-                {editContactId === contact._id ? (
-                  <EditableRow
-                    editFormData={editFormData}
-                    handleEditFormChange={handleEditFormChange}
-                    handleCancelClick={handleCancelClick}
-                  />
-                ) : (
-                  <ReadOnlyRow
-                    contact={contact}
-                    handleEditClick={handleEditClick}
-                    handleDeleteClick={handleDeleteClick}
-                  />
-                )}
-              </Fragment>
-            ))}
+            {data &&
+              data.clinics.map((contact) => (
+                <Fragment>
+                  {editContactId === contact._id ? (
+                    <EditableRow
+                      editFormData={editFormData}
+                      handleEditFormChange={handleEditFormChange}
+                      handleCancelClick={handleCancelClick}
+                    />
+                  ) : (
+                    <ReadOnlyRow
+                      contact={contact}
+                      handleEditClick={handleEditClick}
+                      handleDeleteClick={handleDeleteClick}
+                    />
+                  )}
+                </Fragment>
+              ))}
           </tbody>
         </table>
       </form>

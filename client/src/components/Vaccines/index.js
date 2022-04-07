@@ -4,18 +4,16 @@ import { ADD_VACCINE } from "../../utils/mutations";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_ME } from "../../utils/queries";
 
-const Vaccines = ({ user }) => {
-  const [vaccineForm, setVaccineForm] = useState({
-    patientNumber: "",
-  });
+const Vaccines = () => {
+  const [vaccineForm, setVaccineForm] = useState({});
 
   const [cardForm, setCardForm] = useState({});
 
-  const { loading, data } = useQuery(GET_ME, {
+  const { data } = useQuery(GET_ME, {
     variables: { username: "joe" },
   });
   const me = data?.me || {};
-  const [addVaccine, { error }] = useMutation(ADD_VACCINE);
+  const addVaccine = useMutation(ADD_VACCINE);
 
   const handleChange = (event) => {
     setVaccineForm({ ...vaccineForm, [event.target.name]: event.target.value });
