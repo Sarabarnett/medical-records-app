@@ -1,4 +1,7 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+// import { Link } from 'react-router-dom';
+
 import AboutUs from '../components/AboutUs'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
@@ -9,8 +12,19 @@ import Signup from '../components/Signup'
 // import MedicalRecords from '../components/MedicalRecords'
 // import Clinics from '../components/Clinics'
 
-// import { useQuery } from '@apollo/client';
-// import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
+
+import {createTheme, ThemeProvider } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/card';
+// import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+// import Button from '@mui/material/Button';
+// import Typography from '@mui/material/Typography';
+// import TextField from '@mui/material/TextField';
+// import NineteenNinetySeven from '../../assets'
+
+import { useQuery } from '@apollo/client';
+import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
@@ -21,83 +35,102 @@ import Auth from '../utils/auth';
 //log in/log out renders when clicked in nav bar
 //footer and nav bar on each
 
+let theme = createTheme({
+  palette: {
+    primary: {
+      main: '#28D5CF',
+    },
+    secondary: {
+      main: '#F12B95',
+    },
+    tertiary: {
+      main: '#F7EA34',
+    },
+    quaternary: {
+      main: '#F89514'
+    },
+    quinary: {
+      main: '#607D8B',
+    },
+  },
+  // typography:{
+  //   fontFamily: 'NineteenNinetySeven, Comic Sans',
+  // },
+});
+
+
 const Homepage = () => {
-  // const medRecords = vaccine, clinics, records
+    const loggedIn = Auth.loggedIn();
 
-  const loggedIn = Auth.loggedIn();
+    return(
+      <ThemeProvider theme={theme}>
+        <main>
+              <div> 
+                <Box>
+                  <Card>
+                      <CardContent>
+                          <Header />
+                      </CardContent>
+                  </Card>
+                </Box> 
+              </div>
 
-return(
-  <main>
-    <div> <Header /> </div>
-    {/*login | logout */}
-    {/* <clinics, vaccines, medical records /> */}
-    <div>
-      <Login /> <Signup />
-    </div>
+              <div> 
+                <Box>
+                  <Card>
+                      <CardContent>
+                        <Login /> <Signup />
+                      </CardContent>
+                  </Card>
+                </Box> 
+              </div>
 
-    <div>
-      {loggedIn && userData ? (
-        <div className="col-12 col-lg-3 mb-3">
-         <Dashboard 
-         
-         />
-        </div>
-      ) : null}
-    </div>
+              <div> 
+                <Box>
+                  <Card>
+                      <CardContent>
+                        <Login /> <Signup />
+                      </CardContent>
+                  </Card>
+                </Box> 
+              </div>
 
+              <div>
+                {loggedIn && userData ? (
+                  <div> 
+                    <Box>
+                      <Card>
+                          <CardContent>
+                            <Dashboard />
+                          </CardContent>
+                      </Card>
+                    </Box> 
+                  </div>
+                ) : null}
+              </div>
 
-    <AboutUs />
+              <div> 
+                <Box>
+                  <Card>
+                      <CardContent>
+                          <AboutUs />
+                      </CardContent>
+                  </Card>
+                </Box> 
+              </div>
 
-    <div> <Footer /> </div>
-  </main>
-)
-
+              <div> 
+                <Box>
+                  <Card>
+                      <CardContent>
+                          <Footer />
+                      </CardContent>
+                  </Card>
+                </Box> 
+              </div>
+        </main>
+      </ThemeProvider>
+    )
 }
 
-
-
-
-
 export default Homepage;
-
-
-
-
-// const Home = () => {
-//   const { loading, data } = useQuery(QUERY_THOUGHTS);
-//   const { data: userData } = useQuery(QUERY_ME_BASIC);
-//   const thoughts = data?.thoughts || [];
-
-//   const loggedIn = Auth.loggedIn();
-
-  // return (
-  //   <main>
-  //     <div className="flex-row justify-space-between">
-  //       {loggedIn && (
-  //         <div className="col-12 mb-3">
-  //           <ThoughtForm />
-  //         </div>
-  //       )}
-  //       <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
-  //         {loading ? (
-  //           <div>Loading...</div>
-  //         ) : (
-  //           <ThoughtList
-  //             thoughts={thoughts}
-  //             title="Some Feed for Thought(s)..."
-  //           />
-  //         )}
-  //       </div>
-  //       {loggedIn && userData ? (
-  //         <div className="col-12 col-lg-3 mb-3">
-  //           <FriendList
-  //             username={userData.me.username}
-  //             friendCount={userData.me.friendCount}
-  //             friends={userData.me.friends}
-  //           />
-  //         </div>
-  //       ) : null}
-  //     </div>
-  //   </main>
-  // );
-// };
