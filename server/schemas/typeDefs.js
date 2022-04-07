@@ -18,7 +18,10 @@ const typeDefs = gql`
 
   type Vaccines {
     vaccineName: String
-    clinic: String
+    clinic: [Clinic]
+    primaryDoctor: String
+    
+
   }
 
   type Query {
