@@ -172,4 +172,4 @@ const Vaccines = ({ user }) => {
     )
 };
 
-export default Vaccines
+export default Vaccines;

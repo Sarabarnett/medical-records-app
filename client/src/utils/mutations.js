@@ -11,6 +11,10 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
@@ -22,6 +26,7 @@ export const ADD_USER = gql`
     }
   }
   `;
+<<<<<<< HEAD
 //add_vaccine, add_xxx, add_xxx
 export const ADD_VACCINE = gql`
   mutation addVaccine($Vaccines: String!) {
@@ -32,6 +37,12 @@ export const ADD_VACCINE = gql`
     }
   }
 `;
+=======
+
+
+//add_vaccine, add_xxx, add_xxx
+
+>>>>>>> develop
 export const ADD_RECORDS = gql`
   mutation addRecords($Records: String!) {
       addRecords(Records: $Records) {
@@ -41,10 +52,22 @@ export const ADD_RECORDS = gql`
       }
     }
   `;
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 export const ADD_CLINIC = gql`
   mutation addClinic($Clinic: String!) {
       addClinic(Clinic: $Clinic) {
         _id
         createdAt
         }
+<<<<<<< HEAD
     }`;
+=======
+    }`;
+
+
+
+
+>>>>>>> develop
