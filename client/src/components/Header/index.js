@@ -97,7 +97,7 @@ const Header = () => {
                       m: 2,
                     }}
                     variant="h4"
-                    color="secondary"
+                    color="primary"
                   >
                     About Us
                   </Typography>
@@ -121,7 +121,7 @@ const Header = () => {
                       m: 2,
                     }}
                     variant="h4"
-                    color="secondary"
+                    color="primary"
                   >
                     Signup
                   </Typography>

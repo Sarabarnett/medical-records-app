@@ -4,7 +4,7 @@ import React from 'react';
 
 import AboutUs from '../components/AboutUs'
 import Footer from '../components/Footer'
-import Header from '../components/Header'
+// import Header from '../components/Header'
 import Dashboard from '../components/Dashboard'
 // import Login from '../components/Login'
 // import Signup from '../components/Signup'
@@ -65,7 +65,7 @@ const Homepage = () => {
     return(
       <ThemeProvider theme={theme}>
         <main>
-              {/* header section */}
+              {/* header section
               <div> 
                 <Box className="form"
                       component="form"
@@ -88,7 +88,7 @@ const Homepage = () => {
                       </CardContent>
                   </Card>
                 </Box> 
-              </div>
+              </div> */}
 
               <div>
                 {loggedIn && userData ? (
