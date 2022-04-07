@@ -109,27 +109,7 @@ const Homepage = () => {
               </div>
 
               <div> 
-                <Box className="form"
-                      component="form"
-                      sx={{
-                        
-                      }}
-                      autoComplete="off">
-                  <Card  sx={{ 
-                        boxShadow: 6,
-                        minWidth: 350,
-                        border: 3,
-                        borderColor: 'primary.main',
-                        bgcolor: '#B3E5FC' 
-                        }}>
-                      <CardContent sx={{
-                              p: 5,
-                              textAlign: 'center'
-                            }}>
-                          <Footer />
-                      </CardContent>
-                  </Card>
-                </Box> 
+                <Footer />
               </div>
         </main>
       </ThemeProvider>
