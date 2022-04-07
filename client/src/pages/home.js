@@ -101,9 +101,9 @@ const Homepage = () => {
           <AboutUs />
         </div>
 
-        <div>
+        {/* <div>
           <Footer />
-        </div>
+        </div> */}
       </main>
     </ThemeProvider>
   );
