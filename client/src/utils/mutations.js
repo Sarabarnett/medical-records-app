@@ -9,8 +9,7 @@ export const LOGIN_USER = gql`
         username
       }
     }
-  }
-`;
+  }`;
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
@@ -20,9 +19,7 @@ export const ADD_USER = gql`
         username
       }
     }
-  }
-
-`;
+  }`;
 
 //add_vaccine, add_xxx, add_xxx
 export const ADD_VACCINE = gql`
@@ -33,8 +30,7 @@ export const ADD_VACCINE = gql`
       vaccineName
       location
     }
-  }
-`;
+  }`;
 
 export const ADD_CLINIC = gql`
   mutation addClinic($Clinic: String!) {
@@ -44,8 +40,7 @@ export const ADD_CLINIC = gql`
       primaryDoctor
       phoneNumber
     }
-  }
-`;
+  }`;
 
 export const ADD_RECORDS = gql`
   mutation addRecords($Records: String!) {
@@ -54,5 +49,4 @@ export const ADD_RECORDS = gql`
       createdAt
       username
     }
-  }
-  `;
+  }`;

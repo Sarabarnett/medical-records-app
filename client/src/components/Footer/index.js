@@ -51,7 +51,8 @@ const Footer = () => {
             <CardContent
                 sx={{
                   p: 5,
-                  textAlign: 'center'
+                  textAlign: 'center',
+                  color: "secondary"
                 }}>
               <footer className="">
                   <div className="container">&copy;2022 By O'CSS</div>
