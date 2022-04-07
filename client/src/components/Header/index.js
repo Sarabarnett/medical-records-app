@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth";
-import '../../index.css';
-import Box from '@mui/material/Box';
-import AppBar from '@mui/material/AppBar';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
-import Toolbar from '@mui/material/Toolbar';
+import "../../index.css";
+import Box from "@mui/material/Box";
+import AppBar from "@mui/material/AppBar";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
+import Toolbar from "@mui/material/Toolbar";
 // import MenuItem from '@mui/material/MenuItem';
 // import { Menu } from "@mui/material";
 
@@ -90,18 +90,6 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Link style={{ textDecoration: "none" }} to="/about">
-                  <Typography
-                    sx={{
-                      fontWeight: "500",
-                      m: 2,
-                    }}
-                    variant="h4"
-                    color="primary"
-                  >
-                    About Us
-                  </Typography>
-                </Link>
                 <Link style={{ textDecoration: "none" }} to="/login">
                   <Typography
                     sx={{

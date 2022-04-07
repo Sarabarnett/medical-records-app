@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import validateEmail from "../../utils/helpers.js";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
-import { Link } from "react-router-dom";
+
 import "../../login-signup.css";
+import { Form, Alert } from "react-bootstrap";
+
+// Material UI imports
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
@@ -35,69 +37,53 @@ let theme = createTheme({
 });
 
 function Login() {
-  const [formState, setFormState] = useState({ email: "", password: "" });
-  const { email, password } = formState;
-  const [errorMessage, setErrorMessage] = useState("");
+  const [userFormData, setUserFormData] = useState({ email: "", password: "" });
+  const [validated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
   const [login, { error }] = useMutation(LOGIN_USER);
 
-  //validate email address function
-  function validateEmail(email) {
-    var re =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-  }
-
-  // update state based on form input changes
-  const handleChange = (e) => {
-    if (e.target.name === "email") {
-      const validEmail = validateEmail(e.target.value);
-      console.log(validEmail);
-      if (!validEmail) {
-        setErrorMessage("Please enter a valid email address.");
-      } else {
-        setErrorMessage("");
-      }
-    } else {
-      if (!e.target.value.length) {
-        setErrorMessage(`Password is required.`);
-      } else {
-        setErrorMessage("");
-      }
-    }
-
-    if (!errorMessage) {
-      setFormState({
-        ...formState,
-        [e.target.name]: e.target.value,
-      });
-    }
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
   };
 
-  // submit form
+  // update state based on form input changes
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    // check if form has everything (as per react-bootstrap docs)
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
     try {
       const { data } = await login({
-        variables: { ...formState },
+        variables: { ...userFormData },
       });
-
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
 
-    // clear form values
-    setFormState({
+    setUserFormData({
+      username: "",
       email: "",
       password: "",
     });
   };
-
   return (
     <ThemeProvider theme={theme}>
-      <main>
-        {/* LOGIN FORM */}
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+        <Alert
+          dismissible
+          onClose={() => setShowAlert(false)}
+          show={showAlert}
+          variant="danger"
+        >
+          Something went wrong with your login credentials!
+        </Alert>
         <div>
           <Box
             className="form"
@@ -144,8 +130,9 @@ function Login() {
                     type="email"
                     name="email"
                     variant="outlined"
-                    defaultValue={formState.email}
-                    onBlur={handleChange}
+                    onChange={handleInputChange}
+                    value={userFormData.email}
+                    required
                   />
                   <TextField
                     sx={{
@@ -158,33 +145,25 @@ function Login() {
                     type="password"
                     name="password"
                     variant="outlined"
-                    defaultValue={formState.password}
-                    onBlur={handleChange}
+                    onChange={handleInputChange}
+                    value={userFormData.password}
+                    required
                   />
-                  {errorMessage && (
-                    <Typography variant="button" display="block" gutterBottom>
-                      {errorMessage}
-                    </Typography>
-                  )}
+
                   <CardActions
                     sx={{
                       justifyContent: "center",
                     }}
                   >
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      to="/userDashboard"
+                    <Button
+                      sx={{ fontSize: 22, fontWeight: "600" }}
+                      color="secondary"
+                      variant="contained"
+                      size="medium"
+                      onSubmit={handleFormSubmit}
                     >
-                      <Button
-                        sx={{ fontSize: 22, fontWeight: "600" }}
-                        color="secondary"
-                        variant="contained"
-                        size="medium"
-                        onSubmit={handleFormSubmit}
-                      >
-                        Submit
-                      </Button>
-                    </Link>
+                      Submit
+                    </Button>
                   </CardActions>
                   {error && <div>Login failed</div>}
                 </div>
@@ -192,7 +171,7 @@ function Login() {
             </Card>
           </Box>
         </div>
-      </main>
+      </Form>
     </ThemeProvider>
   );
 }

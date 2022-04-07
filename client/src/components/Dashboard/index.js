@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import CardHeader from "@mui/material/CardHeader";
 //import VaccinesOutlinedIcon from '@mui/icons-material/VaccinesOutlined';
 import PopArtImage from "../../assets/images/popart-transparent.png";
+import { useHistory } from "react-router-dom";
 
 let theme = createTheme({
   palette: {
@@ -35,6 +36,8 @@ let theme = createTheme({
 });
 
 const Dashboard = () => {
+  const history = useHistory();
+
   return (
     <main>
       <Router>
@@ -150,6 +153,22 @@ const Dashboard = () => {
             </div>
           </ThemeProvider>
         </Switch>
+
+        <Button
+          onClick={() => history.goBack()}
+          sx={{
+            m: 2,
+            color: "white",
+            fontSize: 22,
+            fontWeight: "600",
+            minWidth: "100px",
+          }}
+          variant="contained"
+          color="primary"
+          size="large"
+        >
+          Go back
+        </Button>
       </Router>
     </main>
   );
