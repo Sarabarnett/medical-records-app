@@ -1,31 +1,18 @@
-import React from 'react';
+import React from "react";
 // import ReactDOM from 'react-dom';
 // import { Link } from 'react-router-dom';
 
-import AboutUs from '../components/AboutUs'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import Dashboard from '../components/Dashboard'
-// import Login from '../components/Login'
-// import Signup from '../components/Signup'
-// import Vaccines from '../components/Vaccines'
-// import MedicalRecords from '../components/MedicalRecords'
-// import Clinics from '../components/Clinics'
+import AboutUs from "../components/AboutUs";
+import Footer from "../components/Footer";
 
-
-import {createTheme, ThemeProvider } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 // import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 // import Button from '@mui/material/Button';
 // import Typography from '@mui/material/Typography';
 // import TextField from '@mui/material/TextField';
-
-import { useQuery } from '@apollo/client';
-import { QUERY_USER } from '../utils/queries';
-
-import Auth from '../utils/auth';
 
 // import { Link } from 'react-router-dom';
 
@@ -37,83 +24,62 @@ import Auth from '../utils/auth';
 let theme = createTheme({
   palette: {
     primary: {
-      main: '#28D5CF',
+      main: "#28D5CF",
     },
     secondary: {
-      main: '#F12B95',
+      main: "#F12B95",
     },
     tertiary: {
-      main: '#F7EA34',
+      main: "#F7EA34",
     },
     quaternary: {
-      main: '#F89514'
+      main: "#F89514",
     },
     quinary: {
-      main: '#607D8B',
+      main: "#607D8B",
     },
   },
-  typography:{
-    fontFamily: 'NineteenNinetySeven, Comic Sans',
+  typography: {
+    fontFamily: "NineteenNinetySeven, Comic Sans",
   },
 });
 
-
 const Homepage = () => {
-    const loggedIn = Auth.loggedIn();
-    const { data: userData } = useQuery(QUERY_USER);
+  return (
+    <ThemeProvider theme={theme}>
+      <main>
+        {/* header section */}
+        <div>
+          <Box className="form" component="form" sx={{}} autoComplete="off">
+            <Card
+              sx={{
+                bgcolor: "#E1BEE7",
+                minWidth: 350,
+                boxShadow: 6,
+                border: 3,
+                borderColor: "secondary.main",
+              }}
+            >
+              <CardContent
+                sx={{
+                  p: 5,
+                  textAlign: "center",
+                }}
+              ></CardContent>
+            </Card>
+          </Box>
+        </div>
 
-    return(
-      <ThemeProvider theme={theme}>
-        <main>
-              {/* header section */}
-              <div> 
-                <Box className="form"
-                      component="form"
-                      sx={{
-                      }}
-                      autoComplete="off">
-                  <Card sx={{ 
-                        bgcolor: '#E1BEE7',
-                        minWidth: 350,
-                        boxShadow: 6,
-                        border: 3,
-                        borderColor: 'secondary.main'
-                        }}>
-                      <CardContent
-                            sx={{
-                              p: 5,
-                              textAlign: 'center'
-                            }}>
-                          <Header />
-                      </CardContent>
-                  </Card>
-                </Box> 
-              </div>
+        <div>
+          <AboutUs />
+        </div>
 
-              <div>
-                {loggedIn && userData ? (
-                  <div> 
-                    <Box>
-                      <Card>
-                          <CardContent>
-                            <Dashboard />
-                          </CardContent>
-                      </Card>
-                    </Box> 
-                  </div>
-                ) : null}
-              </div>
-
-              <div> 
-                   <AboutUs />
-              </div>
-
-              <div> 
-                <Footer />
-              </div>
-        </main>
-      </ThemeProvider>
-    )
-}
+        <div>
+          <Footer />
+        </div>
+      </main>
+    </ThemeProvider>
+  );
+};
 
 export default Homepage;
