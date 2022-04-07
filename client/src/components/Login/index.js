@@ -62,17 +62,35 @@ function Login() {
       const { data } = await login({
         variables: { ...userFormData },
       });
+      console.log("token", data);
       Auth.login(data.login.token);
+
+      setUserFormData({
+        username: "",
+        email: "",
+        password: "",
+      });
     } catch (e) {
       console.error(e);
     }
-
-    setUserFormData({
-      username: "",
-      email: "",
-      password: "",
-    });
   };
+
+  // // submit form
+  // const handleFormSubmit = async (event) => {
+  //   event.preventDefault();
+  //   console.log("ffffffff")
+  //   try {
+  //     const { data } = await login({ variables: { ...formState } })
+
+  //     // clear form values
+  //     setFormState({
+  //       email: "",
+  //       password: "",
+  //     });
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // };
   return (
     <ThemeProvider theme={theme}>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
@@ -160,7 +178,7 @@ function Login() {
                       color="secondary"
                       variant="contained"
                       size="medium"
-                      onSubmit={handleFormSubmit}
+                      onClick={handleFormSubmit}
                     >
                       Submit
                     </Button>

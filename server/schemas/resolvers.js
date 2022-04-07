@@ -5,8 +5,12 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
+      console.log(context.user)
       if (context.user) {
-        const userData = User.findOne({ _id: context.user.id });
+        const userData = User.findOne({ _id: context.user._id })
+        .populate("clinic")
+        .populate("vaccine");
+        
 
         return userData;
       }
@@ -51,30 +55,34 @@ const resolvers = {
       return { token, user };
     },
     addClinic: async (parent, args, context) => {
-      if (context.user) {
-        const clinic = await Clinic.create({
-          ...args,
-          username: context.user.username,
-        });
+     // if (context.user) {
+        const clinic = await Clinic.create(
+          // ...args,
+          // username: context.user.username,
+          args
+        );
 
-        await User.findOneAndUpdate(
+        const user = await User.findOneAndUpdate(
           { username: args.username },
           { $push: { clinic: clinic._id } },
           { new: true }
-        );
+        ).populate('clinic')
+        ;
+        
+console.log('dddd', user)
+        return user;
+     // }
 
-        return User;
-      }
-
-      throw new AuthenticationError("You need to be logged in!");
+    //  throw new AuthenticationError("You need to be logged in!");
     },
 
     addVaccine: async (parent, args, context) => {
-      if (context.user) {
-        const vaccine = await Vaccines.create({
-          ...args,
-          username: context.user.username,
-        });
+     // if (context.user) {
+        const vaccine = await Vaccines.create(
+        //  ...args,
+      //    username: context.user.username,
+      args
+        );
 
         await User.findOneAndUpdate(
           { username: args.username },
@@ -82,8 +90,8 @@ const resolvers = {
           { new: true }
         );
         return User;
-      }
-      throw new AuthenticationError("You need to be logged in!");
+     // }
+     // throw new AuthenticationError("You need to be logged in!");
     },
   },
 };
