@@ -1,16 +1,17 @@
 import { gql } from "@apollo/client";
-
-export const GET_ME = gql`
-  query me($username: String!) {
-    user(username: $username) {
-      _id
-      username
-      email
-      password
+export const QUERY_USER = gql`
+query user($username: String!) {
+  user (username: $username) {
+    _id
+    username
+    email
+    vaccines{
+      vaccineName
+      location
+      administeredDate
     }
   }
 `;
-
 export const GET_CLINICS = gql`
   query clinics($username: String) {
     clinics(username: $username) {
@@ -21,14 +22,12 @@ export const GET_CLINICS = gql`
     }
   }
 `;
-
-export const GET_VACCINES = gql`
-  query vaccine($username: String) {
-    vaccine(username: $username) {
-      vaccineName
-      clinic
-      adimisteredDate
-      location
+export const GET_ME = gql`
+  query Query($username: String) {
+    me(username: $username) {
+      _id
+      username
+      email
     }
   }
 `;
