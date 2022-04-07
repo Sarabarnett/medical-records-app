@@ -31,7 +31,6 @@ let theme = createTheme({
     },
   },
   typography: {
-    htmlFontSize: "64rem",
     fontFamily: ["Permanent Marker", "cursive", "Acme", "sans-serif"].join("."),
   },
 });
@@ -58,6 +57,7 @@ const AboutUs = () => {
             <Typography
               sx={{
                 fontFamily: "Permanent Marker",
+                htmlFontSize: "64rem",
               }}
             >
               <h1>Our Cool Super Story</h1>
