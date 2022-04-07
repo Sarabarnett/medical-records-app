@@ -27,103 +27,56 @@ const Vaccines = () => {
   };
 
   return (
-    <div className="vaccineContainer d-flex flex-wrap">
-      <Form className="w-50 vaccine-form" onSubmit={handleSubmit}>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Vaccine</th>
-              <th>Administered Data</th>
-              <th>Clinic Site</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                Please fill out this form out so we can submit this to your
-                account.
-              </td>
-              <td>
-                <Form.Control
-                  type="text"
-                  name="vaccineName"
-                  value={queryValuesText}
-                  placeholder="Name of the Vaccine"
-                />
-              </td>
-              <td>
-                <Form.Control
-                  type="date"
-                  name="administeredDate"
-                  value={queryValuesText}
-                  placeholder="When was this vaccine given to you?"
-                />
-              </td>
-              <td>
-                <Form.Control
-                  type="text"
-                  name="location"
-                  value={queryValuesText}
-                  placeholder="What clinic did you recieve this vaccine at?"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </Table>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-
-      {/* 
-      <div>
-        ? (
-        <div>
-          <Table></Table>
-        </div>
-        ) : (<h1>Loading vaccines... </h1>
+    <>
+      <div className="vaccineContainer d-flex flex-wrap">
+        <Form className="w-50 vaccine-form" onSubmit={handleSubmit}>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Vaccine</th>
+                <th>Administered Data</th>
+                <th>Clinic Site</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Please fill out this form out so we can submit this to your
+                  account.
+                </td>
+                <td>
+                  <Form.Control
+                    type="text"
+                    name="vaccineName"
+                    value={queryValuesText}
+                    placeholder="Name of the Vaccine"
+                  />
+                </td>
+                <td>
+                  <Form.Control
+                    type="date"
+                    name="administeredDate"
+                    value={queryValuesText}
+                    placeholder="When was this vaccine given to you?"
+                  />
+                </td>
+                <td>
+                  <Form.Control
+                    type="text"
+                    name="location"
+                    value={queryValuesText}
+                    placeholder="What clinic did you recieve this vaccine at?"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </Table>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
       </div>
-    </div>
-  ); */}
-
-      <div>
-        {cardForm.firstName ? (
-          <div>
-            <div className="d-flex">
-              <p>first name:{cardForm.firstName}</p>
-              <p>last name:{cardForm.lastName}</p>
-            </div>
-            <div className="d-flex">
-              <p>Date:{cardForm.dob}</p>
-              <p>
-                Patient Number:
-                {cardForm.patientNumber ? cardForm.patientNumber : ""}
-              </p>
-            </div>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Vaccine</th>
-                  <th>Product Name</th>
-                  <th>Date</th>
-                  <th>Clinic Site</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>First dose</td>
-                  <td>{cardForm.firstDoseProductName}</td>
-                  <td>{cardForm.firstDoseDate}</td>
-                  <td>{cardForm.firstDoseClinic}</td>
-                </tr>
-              </tbody>
-            </Table>
-          </div>
-        ) : (
-          <h1>Loading vaccines... </h1>
-        )}
-      </div>
-    </div>
+    </>
   );
 };
 
