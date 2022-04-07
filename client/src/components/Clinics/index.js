@@ -1,6 +1,5 @@
 import React, { useState, Fragment, useEffect } from "react";
 import "../../Clinic.css";
-import data from "../../mock-data.json";
 import { nanoid } from "nanoid";
 import ReadOnlyRow from "../ReadOnlyRow";
 import EditableRow from "../EditableRow";
@@ -18,11 +17,11 @@ const Clinics = () => {
     phoneNumber: "",
   });
 
-  const [addClinic, { error }] = useMutation(ADD_CLINIC);
+  const [addClinic] = useMutation(ADD_CLINIC);
 
-  const { loading, data } = useQuery(GET_ME);
+  const { data } = useQuery(GET_ME);
   const me = data?.me || [];
-  console.log("dddddd", data);
+  console.log(data);
   //const loggedIn = Auth.loggedIn();
 
   const [editFormData, setEditFormData] = useState({
@@ -33,7 +32,7 @@ const Clinics = () => {
   const [editContactId, setEditContactId] = useState(null);
 
   useEffect(() => {
-    console.log("dd", me);
+    console.log("", me);
     // will fetch clinics from server/DB then put into state
     const clinicStorage = localStorage.getItem("clinics");
     if (!clinicStorage) {
