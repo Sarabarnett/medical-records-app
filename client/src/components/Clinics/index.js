@@ -190,4 +190,4 @@ if (!clinicStorage) {
   );
 };
 
-export default Clinics;
+export default Clinics;          
