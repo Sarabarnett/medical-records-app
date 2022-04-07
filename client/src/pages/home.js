@@ -66,10 +66,26 @@ const Homepage = () => {
     return(
       <ThemeProvider theme={theme}>
         <main>
+              {/* header section */}
               <div> 
-                <Box>
-                  <Card>
-                      <CardContent>
+                <Box className="form"
+                      component="form"
+                      sx={{
+                        '& > :not(style)': { m: 1, width: '25ch' },
+                      }}
+                      autoComplete="off">
+                  <Card sx={{ 
+                        bgcolor: '#E1BEE7',
+                        minWidth: 350,
+                        boxShadow: 6,
+                        border: 3,
+                        borderColor: 'secondary.main'
+                        }}>
+                      <CardContent
+                            sx={{
+                              p: 5,
+                              textAlign: 'center'
+                            }}>
                           <Header />
                       </CardContent>
                   </Card>
@@ -101,9 +117,26 @@ const Homepage = () => {
               </div>
 
               <div> 
-                <Box>
-                  <Card>
-                      <CardContent>
+                <Box
+                     className="form"
+                     component="form"
+                     sx={{
+                       '& > :not(style)': { m: 1, width: '25ch' },
+                     }}
+                     autoComplete="off">
+                  <Card
+                      sx={{ 
+                        boxShadow: 6,
+                        minWidth: 350,
+                        border: 3,
+                        borderColor: 'primary.main',
+                        bgcolor: '#B3E5FC' 
+                        }}>
+                      <CardContent
+                            sx={{
+                              p: 5,
+                              textAlign: 'center'
+                            }}>
                           <AboutUs />
                       </CardContent>
                   </Card>
@@ -111,9 +144,23 @@ const Homepage = () => {
               </div>
 
               <div> 
-                <Box>
-                  <Card>
-                      <CardContent>
+                <Box className="form"
+                      component="form"
+                      sx={{
+                        '& > :not(style)': { m: 1, width: '25ch' },
+                      }}
+                      autoComplete="off">
+                  <Card  sx={{ 
+                        boxShadow: 6,
+                        minWidth: 350,
+                        border: 3,
+                        borderColor: 'primary.main',
+                        bgcolor: '#B3E5FC' 
+                        }}>
+                      <CardContent sx={{
+                              p: 5,
+                              textAlign: 'center'
+                            }}>
                           <Footer />
                       </CardContent>
                   </Card>
