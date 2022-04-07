@@ -10,16 +10,10 @@ import { GET_ME } from '../../utils/queries'
 
 const Vaccines = ({ user }) => {
     const [vaccineForm, setVaccineForm] = useState({
-        firstName: '',
-        lastName: '',
-        dob: '',
-        patientNumber: '',
-        firstDoseProductName: '',
-        firstDoseDate: '',
-        firstDoseClinic: '',
-        secondDoseProductName: '',
-        secondDoseDate: '',
-        secondDoseClinic: '',
+        vaccineName: String,
+        clinic: [Clinic],
+        administeredDate: String,
+        location: String
     });
 
     const [cardForm, setCardForm] = useState({});
