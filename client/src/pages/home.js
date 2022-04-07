@@ -21,7 +21,6 @@ import CardContent from '@mui/material/CardContent';
 // import Button from '@mui/material/Button';
 // import Typography from '@mui/material/Typography';
 // import TextField from '@mui/material/TextField';
-// import NineteenNinetySeven from '../../assets'
 
 import { useQuery } from '@apollo/client';
 import { QUERY_USER } from '../utils/queries';
@@ -53,9 +52,9 @@ let theme = createTheme({
       main: '#607D8B',
     },
   },
-  // typography:{
-  //   fontFamily: 'NineteenNinetySeven, Comic Sans',
-  // },
+  typography:{
+    fontFamily: 'NineteenNinetySeven, Comic Sans',
+  },
 });
 
 
@@ -71,7 +70,6 @@ const Homepage = () => {
                 <Box className="form"
                       component="form"
                       sx={{
-                        '& > :not(style)': { m: 1, width: '25ch' },
                       }}
                       autoComplete="off">
                   <Card sx={{ 
@@ -92,16 +90,6 @@ const Homepage = () => {
                 </Box> 
               </div>
 
-              {/* <div> 
-                <Box>
-                  <Card>
-                      <CardContent>
-                        <Login /> <Signup />
-                      </CardContent>
-                  </Card>
-                </Box> 
-              </div> */}
-
               <div>
                 {loggedIn && userData ? (
                   <div> 
@@ -121,7 +109,7 @@ const Homepage = () => {
                      className="form"
                      component="form"
                      sx={{
-                       '& > :not(style)': { m: 1, width: '25ch' },
+
                      }}
                      autoComplete="off">
                   <Card
@@ -147,7 +135,7 @@ const Homepage = () => {
                 <Box className="form"
                       component="form"
                       sx={{
-                        '& > :not(style)': { m: 1, width: '25ch' },
+                        
                       }}
                       autoComplete="off">
                   <Card  sx={{ 

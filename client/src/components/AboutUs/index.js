@@ -9,7 +9,7 @@ import CardContent from '@mui/material/CardContent';
 // import Button from '@mui/material/Button';
 // import Typography from '@mui/material/Typography';
 // import TextField from '@mui/material/TextField';
-// import NineteenNinetySeven from '../../assets'
+
 
 let theme = createTheme({
   palette: {
@@ -29,9 +29,9 @@ let theme = createTheme({
       main: '#607D8B',
     },
   },
-  // typography:{
-  //   fontFamily: 'NineteenNinetySeven, Comic Sans',
-  // },
+  typography:{
+    fontFamily: 'Permanent Marker',
+  },
 });
 
 const AboutUs = () => {
@@ -43,10 +43,16 @@ const AboutUs = () => {
             <Box className="form"
                       component="form"
                       sx={{
-                        '& > :not(style)': { m: 1, width: '25ch' },
+                        fontFamily: 'Permanent Marker'
                       }}
                       autoComplete="off">
-                <Card>
+                <Card sx={{ 
+                        bgcolor: '#E1BEE7',
+                        
+                        boxShadow: 6,
+                        border: 3,
+                        borderColor: 'secondary.main'
+                        }}>
                     <CardContent>
                     <h1 >Our Cool Super Story</h1>
 
