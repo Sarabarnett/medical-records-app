@@ -17,8 +17,10 @@ const Clinics = () => {
     phoneNumber: "",
   });
 
-const {loading, error, data } = useQuery(GET_CLINICS, {variables: {username:"joe"}});
-console.log("clinicdata", data)
+const {loading,  data}  = useQuery(GET_CLINICS);
+const clinic = data?.clinics || [];
+//const loggedIn = Auth.loggedIn();
+console.log("clinicdata", addFormData)
 
 
 
