@@ -1,8 +1,40 @@
 import React, { useState } from "react";
-import { Form, Button, Table } from "react-bootstrap";
+import { Form,  Table } from "react-bootstrap";
 import { ADD_VACCINE } from "../../utils/mutations";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_ME } from "../../utils/queries";
+ //import { createTheme, ThemeProvider } from '@mui/material/styles';
+// import Box from '@mui/material/Box';
+// import Card from '@mui/material/Card';
+// import CardActions from '@mui/material/CardActions';
+// import CardContent from '@mui/material/CardContent';
+ import Button from '@mui/material/Button';
+//import Typography from '@mui/material/Typography';
+// import TextField from '@mui/material/TextField';
+
+// let theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: '#28D5CF',
+//     },
+//     secondary: {
+//       main: '#F12B95',
+//     },
+//     tertiary: {
+//       main: '#F7EA34',
+//     },
+//     quaternary: {
+//       main: '#F89514'
+//     },
+//     quinary: {
+//       main: '#607D8B',
+//     },
+//   },
+//   typography: {
+//     fontFamily: ["Permanent Marker", "cursive", "Acme", "sans-serif"],
+//   },
+// }); 
+
 
 const Vaccines = () => {
   const [queryValuesText, setText] = useState("");
@@ -27,7 +59,7 @@ const Vaccines = () => {
   };
 
   return (
-    <>
+    //<ThemeProvider theme={theme}>
       <div className="vaccineContainer d-flex flex-wrap">
         <Form className="w-50 vaccine-form" onSubmit={handleSubmit}>
           <Table striped bordered hover>
@@ -71,12 +103,24 @@ const Vaccines = () => {
               </tr>
             </tbody>
           </Table>
-          <Button variant="primary" type="submit">
-            Submit
+          <Button
+             sx={{
+                m: 2,
+                color: "white",
+                fontSize: 28,
+                fontWeight: "400",
+                minWidth: "100px",
+                fontFamily: "Acme"
+              }}
+              variant="contained"
+              color="primary"
+              size="large"
+          >
+          Submit
           </Button>
         </Form>
       </div>
-    </>
+    //</ThemeProvider>
   );
 };
 

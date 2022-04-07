@@ -33,6 +33,9 @@ let theme = createTheme({
       main: "#607D8B",
     },
   },
+  typography: {
+    fontFamily: ["Permanent Marker", "cursive", "Acme", "sans-serif"],
+  },
 });
 
 const Dashboard = () => {
@@ -51,14 +54,16 @@ const Dashboard = () => {
               <Typography
                 sx={{
                   p: 5,
-                  fontWeight: "700",
+                  fontWeight: "400",
+                  fontSize: 70,
+                  fontFamily: "Permanent Marker"
                 }}
                 noWrap
                 variant="h2"
                 component="div"
                 color="#F7EA34"
               >
-                Welcome back, "NAME"!
+                Welcome back!
               </Typography>
 
               <Box>
@@ -78,9 +83,10 @@ const Dashboard = () => {
                       bgcolor: "#F12B95",
                       color: "#28D5CF",
                       textAlign: "center",
+                      
                     }}
-                    titleTypographyProps={{ variant: "h4" }}
-                    title="Add Info To Your Records"
+                    titleTypographyProps={{ variant: "h4", fontFamily: "Acme", fontSize: 46 }}
+                    title="Add To Your Records"
                   />
                   <CardContent
                     sx={{
@@ -95,9 +101,10 @@ const Dashboard = () => {
                             sx={{
                               m: 2,
                               color: "white",
-                              fontSize: 22,
-                              fontWeight: "600",
+                              fontSize: 28,
+                              fontWeight: "400",
                               minWidth: "100px",
+                              fontFamily: "Acme"
                             }}
                             variant="contained"
                             color="primary"
@@ -113,9 +120,10 @@ const Dashboard = () => {
                             sx={{
                               m: 2,
                               color: "white",
-                              fontSize: 22,
-                              fontWeight: "600",
+                              fontSize: 28,
+                              fontWeight: "400",
                               minWidth: "100px",
+                              fontFamily: "Acme"
                             }}
                             variant="contained"
                             color="primary"
@@ -134,9 +142,10 @@ const Dashboard = () => {
                             sx={{
                               m: 2,
                               color: "white",
-                              fontSize: 22,
-                              fontWeight: "600",
+                              fontSize: 28,
+                              fontWeight: "400",
                               minWidth: "100px",
+                              fontFamily: "Acme"
                             }}
                             variant="contained"
                             color="primary"

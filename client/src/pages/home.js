@@ -3,9 +3,9 @@ import React from "react";
 // import { Link } from 'react-router-dom';
 
 import AboutUs from "../components/AboutUs";
-import Footer from "../components/Footer";
+//import Footer from "../components/Footer";
 // import Header from '../components/Header'
-import Dashboard from "../components/Dashboard";
+//import Dashboard from "../components/Dashboard";
 // import Login from '../components/Login'
 // import Signup from '../components/Signup'
 // import Vaccines from '../components/Vaccines'
@@ -13,9 +13,9 @@ import Dashboard from "../components/Dashboard";
 // import Clinics from '../components/Clinics'
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
+// import Box from "@mui/material/Box";
+// import Card from "@mui/material/Card";
+// import CardContent from "@mui/material/CardContent";
 // import CardActions from '@mui/material/CardActions';
 // import Button from '@mui/material/Button';
 // import Typography from '@mui/material/Typography';

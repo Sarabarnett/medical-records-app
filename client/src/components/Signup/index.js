@@ -31,7 +31,9 @@ let theme = createTheme({
       main: '#607D8B',
     },
   },
-
+  typography: {
+    fontFamily: ["Permanent Marker", "cursive", "Acme", "sans-serif"],
+  },
 }); 
 
 
@@ -126,8 +128,10 @@ function Signup() {
               textAlign: 'center'
             }}>
           <Typography 
-          sx={{ fontSize: 36,
-          fontWeight: '800' }} 
+          sx={{ fontSize: 40,
+          fontWeight: "400",
+          fontFamily: "Permanent Marker"
+          }} 
           gutterBottom
           color="primary">
             SIGNUP
@@ -185,8 +189,14 @@ function Signup() {
                 justifyContent: 'center'
               }}>
               <Link style={{ textDecoration: 'none' }} to="/userDashboard">
-                <Button sx={{ color: 'white', fontSize: 22, fontWeight: '600',}}
-                color="primary" variant="contained" size="medium"onSubmit={handleFormSubmit}>Submit</Button>
+                <Button sx={{
+                   color: 'white', 
+                   fontSize: 28, 
+                   fontWeight: "400",
+                  fontFamily: "Acme"
+                  }}
+                color="primary" variant="contained" size="medium"onSubmit={handleFormSubmit}>
+                  Submit</Button>
               </Link>
               </CardActions>
             </div>
