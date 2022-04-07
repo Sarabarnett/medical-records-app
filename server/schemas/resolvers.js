@@ -4,24 +4,23 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+    user: async (parent, { username }) => {
+      return User.findOne({ username });
+    },
     me: async (parent, { username }) => {
-      if (context.user) {
-        const userData = user.findOne({ _id: context.user.id })
-        return userData
-      }
-      throw new AuthenticationError("Not logged in")
+      return User.findOne({ username });
     },
-
-    clinics: async (parent, { _id }) => {
-      if (context.user) {
-        const clinicName = await Clinic.find(params).sort({ createdAt: -1 });
-        return clinicName;
-      }
-
+    clinics: async (parent, { username }, context) => {
+      const params = username ? { username } : {};
+      console.log("params", params);
+      const clinicName = await Clinic.find(params).sort({ createdAt: -1 });
+      return clinicName;
     },
-    vaccine: async (parent, { _id }) => {
-      return Vaccine.findOne({ _id })
-    }
+    clinic: async (parent, { _id }) => {
+      const oneClinic = await Clinic.findOne({ _id });
+      return oneClinic;
+    },
+    vaccine: async (parent, {}) => {},
   },
 
   Mutation: {
