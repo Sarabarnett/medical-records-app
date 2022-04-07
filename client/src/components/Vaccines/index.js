@@ -4,26 +4,6 @@ import { ADD_VACCINE } from "../../utils/mutations";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_ME } from "../../utils/queries";
 
-//  user {
-//     userName: 'John',
-//     email: '',
-//     vaccine: {
-//         dob: '',
-//         patientNumber:'',
-//         firstName: '',
-//         lastName; '',
-//            firstDose: {
-//                productName: 'pfizer',
-//                date: 'mm/dd/yy',
-//                clinicSite: '',
-//            },
-//secondDose: {
-//                productName: 'pfizer',
-//                date: 'mm/dd/yy',
-//                clinicSite: '',
-//     }
-// }
-
 const Vaccines = ({ user }) => {
   const [vaccineForm, setVaccineForm] = useState({
     patientNumber: "",

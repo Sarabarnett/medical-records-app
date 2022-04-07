@@ -20,7 +20,7 @@ const typeDefs = gql`
   type Vaccines {
     _id: ID
     vaccineName: String
-    clinic: [Clinic]
+    clinic: String
     administeredDate: String
     location: String
   }
