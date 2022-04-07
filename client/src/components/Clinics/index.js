@@ -5,29 +5,25 @@ import { nanoid } from "nanoid";
 import ReadOnlyRow from "../ReadOnlyRow";
 import EditableRow from "../EditableRow";
 import { GET_ME } from "../../utils/queries";
-import { ADD_CLINIC} from "../../utils/mutations"
+import { ADD_CLINIC } from "../../utils/mutations";
 import { useQuery, useMutation } from "@apollo/client";
 //import { Link } from 'react-router-dom';
 //import  { Form } from 'react-bootstrap'
 
 const Clinics = () => {
-  const [contacts, setContacts] = useState('');
+  const [contacts, setContacts] = useState("");
   const [addFormData, setAddFormData] = useState({
     clinicName: "",
     primaryDoctor: "",
     phoneNumber: "",
   });
 
-const [addClinic, {error}] = useMutation(ADD_CLINIC);
+  const [addClinic, { error }] = useMutation(ADD_CLINIC);
 
-
-const {loading,  data}  = useQuery(GET_ME);
-const me = data?.me || [];
-console.log('dddddd',data)
-//const loggedIn = Auth.loggedIn();
-
-
-
+  const { loading, data } = useQuery(GET_ME);
+  const me = data?.me || [];
+  console.log("dddddd", data);
+  //const loggedIn = Auth.loggedIn();
 
   const [editFormData, setEditFormData] = useState({
     clinicName: "",
@@ -37,7 +33,7 @@ console.log('dddddd',data)
   const [editContactId, setEditContactId] = useState(null);
 
   useEffect(() => {
-    console.log('dd', me)
+    console.log("dd", me);
     // will fetch clinics from server/DB then put into state
     const clinicStorage = localStorage.getItem("clinics");
     if (!clinicStorage) {
@@ -73,18 +69,19 @@ console.log('dddddd',data)
 
   const handleAddFormSubmit = (event) => {
     event.preventDefault();
-try {
-    const newContact = {
-      id: nanoid(),
-      clinicname: addFormData.clinicName,
-      primaryDoctor: addFormData.primaryDoctor,
-      phoneNumber: addFormData.phoneNumber,
-    };
-    const {data} = addClinic({variables: {...newContact, username: me.username}})
-  
-  } catch (err){
-    console.log(err)
-  }
+    try {
+      const newContact = {
+        id: nanoid(),
+        clinicname: addFormData.clinicName,
+        primaryDoctor: addFormData.primaryDoctor,
+        phoneNumber: addFormData.phoneNumber,
+      };
+      const { data } = addClinic({
+        variables: { ...newContact, username: me.username },
+      });
+    } catch (err) {
+      console.log(err);
+    }
     //const newContacts = [...contacts, newContact];
     // setContacts(newContacts);
     // const clinicStorage = JSON.parse(localStorage.getItem("clinics"));
@@ -152,10 +149,9 @@ try {
             </tr>
           </thead>
           <tbody>
-            {me.clinic ? 
+            {me.clinic ? (
               me.clinic.map((contact) => (
                 <Fragment>
-                  
                   {editContactId === contact._id ? (
                     <EditableRow
                       editFormData={editFormData}
@@ -170,7 +166,10 @@ try {
                     />
                   )}
                 </Fragment>
-              )): <tr>No Data</tr>}
+              ))
+            ) : (
+              <tr>No Data</tr>
+            )}
           </tbody>
         </table>
       </form>
@@ -204,4 +203,4 @@ try {
   );
 };
 
-export default Clinics;          
+export default Clinics;

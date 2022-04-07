@@ -13,7 +13,6 @@ export const QUERY_USER = gql`
       }
     }
   }
-}
 `;
 export const GET_CLINICS = gql`
   query clinics($username: String) {
@@ -26,24 +25,24 @@ export const GET_CLINICS = gql`
   }
 `;
 export const GET_ME = gql`
-query me {
-  me {
-    _id
-    username
-    email
-    vaccine {
-      location
-      administeredDate
-      clinic
-      vaccineName
+  query me {
+    me {
       _id
-    }
-    clinic {
-      phoneNumber
-      primaryDoctor
-      _id
-      clinicname
+      username
+      email
+      vaccine {
+        location
+        administeredDate
+        clinic
+        vaccineName
+        _id
+      }
+      clinic {
+        phoneNumber
+        primaryDoctor
+        _id
+        clinicname
+      }
     }
   }
-}
 `;
