@@ -10,7 +10,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 // import TextField from '@mui/material/TextField';
 
-import buffKitty from '../../assets/images/buffy-kitty.jpg';
+import buffyKitty from '../../assets/images/';
 
 let theme = createTheme({
   palette: {
@@ -91,7 +91,7 @@ const AboutUs = () => {
                                 }}>
                                  <div>
                                 <h3>Save your existing medical information
-                                  <div> <img src={buffKitty} alt="buffKitty" /> </div>
+                                  <div> <img src={buffyKitty} alt="buffKitty" /> </div>
                                 </h3>
 
                                 <h3>Upload your vaccines
