@@ -5,6 +5,11 @@ query user($username: String!) {
     _id
     username
     email
+    vaccines{
+      vaccineName
+      location
+      administeredDate
+    }
   }
 `;
 export const GET_CLINICS = gql`
@@ -15,8 +20,9 @@ export const GET_CLINICS = gql`
       primaryDoctor
       phoneNumber: Int
     }
-  }`;
-  export const GET_ME = gql`
+  }
+`;
+export const GET_ME = gql`
   query Query($username: String) {
     me(username: $username) {
       _id

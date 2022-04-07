@@ -75,12 +75,53 @@ const Vaccines = () => {
         </Button>
       </Form>
 
+      {/* 
       <div>
         ? (
         <div>
           <Table></Table>
         </div>
         ) : (<h1>Loading vaccines... </h1>
+      </div>
+    </div>
+  ); */}
+
+      <div>
+        {cardForm.firstName ? (
+          <div>
+            <div className="d-flex">
+              <p>first name:{cardForm.firstName}</p>
+              <p>last name:{cardForm.lastName}</p>
+            </div>
+            <div className="d-flex">
+              <p>Date:{cardForm.dob}</p>
+              <p>
+                Patient Number:
+                {cardForm.patientNumber ? cardForm.patientNumber : ""}
+              </p>
+            </div>
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Vaccine</th>
+                  <th>Product Name</th>
+                  <th>Date</th>
+                  <th>Clinic Site</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>First dose</td>
+                  <td>{cardForm.firstDoseProductName}</td>
+                  <td>{cardForm.firstDoseDate}</td>
+                  <td>{cardForm.firstDoseClinic}</td>
+                </tr>
+              </tbody>
+            </Table>
+          </div>
+        ) : (
+          <h1>Loading vaccines... </h1>
+        )}
       </div>
     </div>
   );
