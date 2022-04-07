@@ -70,19 +70,18 @@ const AboutUs = () => {
               }}
             >
               <p>
-                Blah, blah, blah we came together for Project #3 despite
-                crippling odds
+                We at O'CSS believe that patient ease should be at the forefront of the medical experience.
                 <br></br>
-                Blah, blah, blah and settled on this medical related app.
+                That is why we created EMR:
                 <br></br>
-                Blah, blah, blah Here is how it works:
+                A Full-Stack MERN storage app specifically designed to house all of the confidential health information that you have cumulated over your many years as a patient.
               </p>
             </Typography>
 
             <Typography
               sx={{
                 fontFamily: "Permanent Marker",
-                fontSize: [54, "!important"],
+                fontSize: [44, "!important"],
               }}
             >
               <div>
