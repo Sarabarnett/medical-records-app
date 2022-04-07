@@ -4,18 +4,15 @@ import { ADD_VACCINE } from "../../utils/mutations";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_ME } from "../../utils/queries";
 
-const Vaccines = ({ user }) => {
-  const [vaccineForm, setVaccineForm] = useState({
-    patientNumber: "",
-  });
+const Vaccines = () => {
+  const [vaccineForm, setVaccineForm] = useState("");
+  const [cardForm, setCardForm] = useState();
 
-  const [cardForm, setCardForm] = useState({});
-
-  const { loading, data } = useQuery(GET_ME, {
+  const { data } = useQuery(GET_ME, {
     variables: { username: "joe" },
   });
   const me = data?.me || {};
-  const [addVaccine, { error }] = useMutation(ADD_VACCINE);
+  const [addVaccine] = useMutation(ADD_VACCINE);
 
   const handleChange = (event) => {
     setVaccineForm({ ...vaccineForm, [event.target.name]: event.target.value });
@@ -85,8 +82,7 @@ const Vaccines = ({ user }) => {
           <thead>
             <tr>
               <th>Vaccine</th>
-              <th>Product Name</th>
-              <th>Date</th>
+              <th>Administered Data</th>
               <th>Clinic Site</th>
             </tr>
           </thead>
@@ -120,39 +116,6 @@ const Vaccines = ({ user }) => {
                   name="firstDoseClinic"
                   value={vaccineForm.firstDoseClinic}
                   placeholder="product Name"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td>Second Dose</td>
-              <td>
-                {" "}
-                <Form.Control
-                  type="text"
-                  onChange={handleChange}
-                  name="secondDoseProductName"
-                  value={vaccineForm.secondDoseProductName}
-                  placeholder="product Name"
-                />
-              </td>
-              <td>
-                {" "}
-                <Form.Control
-                  type="date"
-                  onChange={handleChange}
-                  name="secondDoseDate"
-                  value={vaccineForm.secondDoseDate}
-                  placeholder="choose date"
-                />
-              </td>
-              <td>
-                {" "}
-                <Form.Control
-                  type="text"
-                  onChange={handleChange}
-                  name="secondDoseClinic"
-                  value={vaccineForm.secondDoseClinic}
-                  placeholder="clinic"
                 />
               </td>
             </tr>
