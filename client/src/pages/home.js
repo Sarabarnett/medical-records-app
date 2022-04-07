@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 // import { Link } from 'react-router-dom';
 
 import AboutUs from '../components/AboutUs'
@@ -15,7 +15,7 @@ import Signup from '../components/Signup'
 
 import {createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/card';
+import Card from '@mui/material/Card';
 // import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 // import Button from '@mui/material/Button';
@@ -24,7 +24,7 @@ import CardContent from '@mui/material/CardContent';
 // import NineteenNinetySeven from '../../assets'
 
 import { useQuery } from '@apollo/client';
-import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
+import { QUERY_USER } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
@@ -61,6 +61,7 @@ let theme = createTheme({
 
 const Homepage = () => {
     const loggedIn = Auth.loggedIn();
+    const { data: userData } = useQuery(QUERY_USER);
 
     return(
       <ThemeProvider theme={theme}>
@@ -70,16 +71,6 @@ const Homepage = () => {
                   <Card>
                       <CardContent>
                           <Header />
-                      </CardContent>
-                  </Card>
-                </Box> 
-              </div>
-
-              <div> 
-                <Box>
-                  <Card>
-                      <CardContent>
-                        <Login /> <Signup />
                       </CardContent>
                   </Card>
                 </Box> 
