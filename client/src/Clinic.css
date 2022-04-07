@@ -37,9 +37,9 @@ td {
   justify-content: space-evenly;
 }
 
-form * {
+/* form * {
   font-size: 25px;
-}
+} */
 
 .vaccine-form{
     min-width: 350px;

@@ -31,7 +31,7 @@ let theme = createTheme({
     },
   },
   typography: {
-    fontFamily: ["Permanent Marker", "cursive", "Acme", "sans-serif"].join("."),
+    fontFamily: ["Permanent Marker", "cursive", "Acme", "sans-serif"],
   },
 });
 
@@ -57,15 +57,16 @@ const AboutUs = () => {
             <Typography
               sx={{
                 fontFamily: "Permanent Marker",
-                htmlFontSize: "64rem",
+                fontSize: [64, "!important"],
               }}
             >
-              <h1>Our Cool Super Story</h1>
+              <div>Our Cool Super Story</div>
             </Typography>
 
             <Typography
               sx={{
                 fontFamily: "Acme",
+                fontSize: [34, "!important"],
               }}
             >
               <p>
@@ -81,11 +82,12 @@ const AboutUs = () => {
             <Typography
               sx={{
                 fontFamily: "Permanent Marker",
+                fontSize: [54, "!important"],
               }}
             >
               <div>
                 <h3>
-                  Save your existing medical information
+                  Save your existing medical information!
                   <div>
                     {" "}
                     <img src={buffKitty} alt="buffKitty" />
@@ -93,7 +95,7 @@ const AboutUs = () => {
                 </h3>
 
                 <h3>
-                  Upload your vaccines
+                  Upload your vaccines!
                   <div>
                     {" "}
                     <img src={buffKitty} alt="buffKitty" />
@@ -101,7 +103,7 @@ const AboutUs = () => {
                 </h3>
 
                 <h3>
-                  List your previous clinics
+                  Log your previous clinics!
                   <div>
                     {" "}
                     <img src={buffKitty} alt="buffKitty" />
