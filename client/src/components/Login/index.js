@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import validateEmail from "../../utils/helpers.js";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
-import Auth from "../utils/auth";
+import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import "../../login-signup.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -76,12 +76,19 @@ function Login() {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
-    // clear form values
-    setFormState({
-      email: "",
-      password: "",
-    });
+    console.log("ffffffff")
+    try {
+      const { data } = await login({ variables: { ...formState } })
+      console.log('token', data)
+      Auth.login(data.login.token)
+      // clear form values
+      setFormState({
+        email: "",
+        password: "",
+      });
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return (
@@ -170,7 +177,8 @@ function Login() {
                         color="secondary"
                         variant="contained"
                         size="medium"
-                        onSubmit={handleFormSubmit}
+                        type="submit"
+                        onClick={handleFormSubmit}
                       >
                         Submit
                       </Button>

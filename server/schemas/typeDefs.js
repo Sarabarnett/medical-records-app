@@ -7,12 +7,12 @@ const typeDefs = gql`
     email: String
     password: String
     vaccine: [Vaccines]
-    clinics: [Clinic]
+    clinic: [Clinic]
   }
 
   type Clinic {
     _id: ID
-    clinicName: String
+    clinicname: String
     primaryDoctor: String
     phoneNumber: String
   }
@@ -41,10 +41,11 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
 
     addClinic(
-      clinicName: String
+      username: String
+      clinicname: String
       primaryDoctor: String
-      PhoneNumber: String
-    ): Clinic
+      phoneNumber: String
+    ): User
 
     addVaccine(
       vaccineName: String

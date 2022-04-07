@@ -22,7 +22,14 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
- 
+  clinic: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Clinic'
+  }],
+vaccine: [{
+  type: Schema.Types.ObjectId,
+  ref: 'Vaccines'
+}]
 });
 
 // set up pre-save middleware to create password
