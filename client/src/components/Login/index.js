@@ -5,6 +5,7 @@ import React, { useState } from "react";
 //import Auth from '../utils/auth';
 import { Link } from "react-router-dom";
 import '../../login-signup.css';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -12,6 +13,27 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+
+let theme = createTheme({
+  palette: {
+    primary: {
+      main: '#28D5CF',
+    },
+    secondary: {
+      main: '#F12B95',
+    },
+    tertiary: {
+      main: '#F7EA34',
+    },
+    quaternary: {
+      main: '#F89514'
+    },
+    quinary: {
+      main: '#607D8B',
+    },
+  },
+
+});
 
 
 function Login() {
@@ -69,7 +91,8 @@ function Login() {
 
 
 return (
-  <main >
+  <ThemeProvider theme={theme}>
+  <main>
     {/* LOGIN FORM */}
       <div>
       <Box
@@ -82,20 +105,24 @@ return (
         >
         <Card 
         sx={{ 
-          bgcolor: '#E1BEE7',
+          bgcolor: '#28D5CF',
           minWidth: 350,
           boxShadow: 6,
-          border: 3,
-          borderColor: 'secondary.main'
-          }}>
+          border: 5,
+          borderColor: '#F12B95',
+          }}
+          >
           <CardContent
           sx={{
             p: 5,
             textAlign: 'center'
-          }}>
+          }}
+          >
           <Typography 
-          sx={{ fontSize: 28,
-            fontWeight: 'bold'}} 
+          sx={{ 
+            fontSize: 36,
+            fontWeight: '800'}} 
+            color="secondary"
             gutterBottom>
             LOGIN
           </Typography>
@@ -138,7 +165,7 @@ return (
                 justifyContent: 'center'
               }}>
               <Link style={{ textDecoration: 'none' }} to="/userDashboard">
-                <Button sx={{ fontSize: 18, fontWeight: 'medium'}}
+                <Button sx={{ fontSize: 22, fontWeight: '600'}}
                 color="secondary" variant="contained" size="medium" onSubmit={handleFormSubmit}>Submit</Button>
               </Link>
               </CardActions>
@@ -148,7 +175,7 @@ return (
       </Box>
       </div>
     </main>
-
+ </ThemeProvider>
 )
 };
 
