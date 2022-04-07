@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useMutation } from '@apollo/client';
+import validateEmail from "../../utils/helpers.js";
+import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
@@ -34,18 +35,17 @@ let theme = createTheme({
 });
 
 function Login() {
-
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [errorMessage, setErrorMessage] = useState('');
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const { email, password } = formState;
+  const [errorMessage, setErrorMessage] = useState("");
   const [login, { error }] = useMutation(LOGIN_USER);
-
 
   //validate email address function
   function validateEmail(email) {
     var re =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
-  };
+  }
 
   // update state based on form input changes
   const handleChange = (e) => {
@@ -66,11 +66,11 @@ function Login() {
     }
 
     if (!errorMessage) {
-    setFormState({
-      ...formState,
-      [e.target.name]: e.target.value,
-    });
-  }
+      setFormState({
+        ...formState,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
   // submit form
@@ -79,7 +79,7 @@ function Login() {
 
     try {
       const { data } = await login({
-        variables: {...formState }
+        variables: { ...formState },
       });
 
       Auth.login(data.login.token);

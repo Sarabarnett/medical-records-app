@@ -5,165 +5,78 @@ import { useMutation, useQuery } from "@apollo/client";
 import { GET_ME } from "../../utils/queries";
 
 const Vaccines = () => {
-  const [vaccineForm, setVaccineForm] = useState("");
-  const [cardForm, setCardForm] = useState();
+  const [queryValuesText, setText] = useState("");
+  const addVaccine = useMutation(ADD_VACCINE);
 
-  const { data } = useQuery(GET_ME, {
-    variables: { username: "joe" },
-  });
-  const me = data?.me || {};
-  const [addVaccine] = useMutation(ADD_VACCINE);
+  const handleChange = (event) => {};
 
-  const handleChange = (event) => {
-    setVaccineForm({ ...vaccineForm, [event.target.name]: event.target.value });
-  };
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      setCardForm({ ...vaccineForm });
-      const { data } = addVaccine({
-        variables: { vaccinedata: vaccineForm, username: me.username },
+      await addVaccine({
+        variables: {
+          //  _id
+          queryValuesText,
+        },
       });
-      console.log(data);
-    } catch (error) {
-      console.error(error);
+      // Clear all the forms formValues
+      setText("");
+    } catch (e) {
+      console.log(e);
     }
   };
 
   return (
-    <div className="vaccineContainer d-flex flex-wrap">
-      <Form className="w-50 vaccine-form" onSubmit={handleSubmit}>
-        <div className="d-flex">
-          <Form.Group className="mb-3 mr-3">
-            <Form.Label>First Name</Form.Label>
-            <Form.Control
-              type="text"
-              onChange={handleChange}
-              name="firstName"
-              value={vaccineForm.firstName}
-              placeholder="First Name"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control
-              type="text"
-              onChange={handleChange}
-              name="lastName"
-              value={vaccineForm.lastName}
-              placeholder="Last Name"
-            />
-          </Form.Group>
-        </div>
-        <div className="d-flex">
-          <Form.Group className="mb-3 mr-3">
-            <Form.Label>Date of Birth</Form.Label>
-            <Form.Control
-              type="date"
-              onChange={handleChange}
-              name="dob"
-              value={vaccineForm.dob}
-              placeholder="Date of Birth"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Patient Number</Form.Label>
-            <Form.Control
-              type="text"
-              onChange={handleChange}
-              name="patientNumber"
-              value={vaccineForm.patientNumber}
-              placeholder="patient Number"
-            />
-          </Form.Group>
-        </div>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Vaccine</th>
-              <th>Administered Data</th>
-              <th>Clinic Site</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>First Dose</td>
-              <td>
-                <Form.Control
-                  type="text"
-                  onChange={handleChange}
-                  name="firstDoseProductName"
-                  value={vaccineForm.firstDoseProductName}
-                  placeholder="product Name"
-                />
-              </td>
-              <td>
-                {" "}
-                <Form.Control
-                  type="date"
-                  onChange={handleChange}
-                  name="firstDoseDate"
-                  value={vaccineForm.firstDoseDate}
-                  placeholder="choose date"
-                />
-              </td>
-              <td>
-                {" "}
-                <Form.Control
-                  type="text"
-                  onChange={handleChange}
-                  name="firstDoseClinic"
-                  value={vaccineForm.firstDoseClinic}
-                  placeholder="product Name"
-                />
-              </td>
-            </tr>
-          </tbody>
-        </Table>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-
-      <div>
-        {cardForm.firstName ? (
-          <div>
-            <div className="d-flex">
-              <p>first name:{cardForm.firstName}</p>
-              <p>last name:{cardForm.lastName}</p>
-            </div>
-            <div className="d-flex">
-              <p>Date:{cardForm.dob}</p>
-              <p>
-                Patient Number:
-                {cardForm.patientNumber ? cardForm.patientNumber : ""}
-              </p>
-            </div>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Vaccine</th>
-                  <th>Product Name</th>
-                  <th>Date</th>
-                  <th>Clinic Site</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>First dose</td>
-                  <td>{cardForm.firstDoseProductName}</td>
-                  <td>{cardForm.firstDoseDate}</td>
-                  <td>{cardForm.firstDoseClinic}</td>
-                </tr>
-              </tbody>
-            </Table>
-          </div>
-        ) : (
-          <h1>no vaccine submitted</h1>
-        )}
+    <>
+      <div className="vaccineContainer d-flex flex-wrap">
+        <Form className="w-50 vaccine-form" onSubmit={handleSubmit}>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Vaccine</th>
+                <th>Administered Data</th>
+                <th>Clinic Site</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Please fill out this form out so we can submit this to your
+                  account.
+                </td>
+                <td>
+                  <Form.Control
+                    type="text"
+                    name="vaccineName"
+                    value={queryValuesText}
+                    placeholder="Name of the Vaccine"
+                  />
+                </td>
+                <td>
+                  <Form.Control
+                    type="date"
+                    name="administeredDate"
+                    value={queryValuesText}
+                    placeholder="When was this vaccine given to you?"
+                  />
+                </td>
+                <td>
+                  <Form.Control
+                    type="text"
+                    name="location"
+                    value={queryValuesText}
+                    placeholder="What clinic did you recieve this vaccine at?"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </Table>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
       </div>
-    </div>
+    </>
   );
 };
 
