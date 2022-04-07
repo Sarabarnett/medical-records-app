@@ -14,7 +14,7 @@ const typeDefs = gql`
     _id: ID
     clinicName: String
     primaryDoctor: String
-    phoneNumber: Int
+    phoneNumber: String
   }
 
   type Vaccines {
@@ -33,7 +33,7 @@ const typeDefs = gql`
   type Query {
     me: User
     clinics(_id: ID!): Clinic
-    getVaccine: Vaccines
+    vaccine: Vaccines
   }
 
   type Mutation {
@@ -43,14 +43,14 @@ const typeDefs = gql`
     addClinic(
       clinicName: String
       primaryDoctor: String
-      PhoneNumber: int
+      PhoneNumber: String
     ): Clinic
 
     addVaccine(
       vaccineName: String
       administeredDate: String
       location: String
-    ): Vaccine
+    ): Vaccines
   }
 `;
 
