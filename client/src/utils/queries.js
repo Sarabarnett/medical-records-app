@@ -13,12 +13,12 @@ query user($username: String!) {
 
 
 export const GET_CLINICS = gql`
-query getclinics($username: String) {
-    clinics (username: $username) {
+query getclinics {
+    clinics{
       clinicname
       _id
     }
-  }`
+  }`;
 
   export const GET_ME = gql`
   query Query($username: String) {
@@ -26,14 +26,5 @@ query getclinics($username: String) {
       _id
       username
       email
-      vaccine {
-        firstDoseProductName
-        firstDoseDate
-        secondDoseDate
-        secondDoseProductName
-        firstDoseClinic
-        secondDoseClinic
-      }
     }
-  }`
-
+  }`;

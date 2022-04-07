@@ -5,6 +5,7 @@ import React, { useState } from "react";
 //import Auth from '../utils/auth';
 import { Link } from "react-router-dom";
 import '../../login-signup.css';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -13,7 +14,29 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 
-const Signup = () => {
+let theme = createTheme({
+  palette: {
+    primary: {
+      main: '#28D5CF',
+    },
+    secondary: {
+      main: '#F12B95',
+    },
+    tertiary: {
+      main: '#F7EA34',
+    },
+    quaternary: {
+      main: '#F89514'
+    },
+    quinary: {
+      main: '#607D8B',
+    },
+  },
+
+}); 
+
+
+function Signup() {
 
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
   // const { username, email, password} = formState;
@@ -69,6 +92,7 @@ const Signup = () => {
   };
 
   return(
+    <ThemeProvider theme={theme}>
     <main >
       {/* SIGNUP FORM */}
       <div>
@@ -81,11 +105,11 @@ const Signup = () => {
         >
         <Card 
         sx={{ 
+          bgcolor: '#F12B95',
           boxShadow: 6,
           minWidth: 350,
-          border: 3,
-          borderColor: 'primary.main',
-          bgcolor: '#B3E5FC' 
+          border: 5,
+          borderColor: '#28D5CF',
           }}>
           <CardContent
             sx={{
@@ -93,9 +117,10 @@ const Signup = () => {
               textAlign: 'center'
             }}>
           <Typography 
-          sx={{ fontSize: 28,
-          fontWeight: 'bold' }} 
-          gutterBottom>
+          sx={{ fontSize: 36,
+          fontWeight: '800' }} 
+          gutterBottom
+          color="primary">
             SIGNUP
           </Typography>
           
@@ -151,8 +176,8 @@ const Signup = () => {
                 justifyContent: 'center'
               }}>
               <Link style={{ textDecoration: 'none' }} to="/userDashboard">
-                <Button sx={{ fontSize: 18, fontWeight: 'medium'}}
-                variant="contained" size="medium"onSubmit={handleFormSubmit}>Submit</Button>
+                <Button sx={{ fontSize: 22, fontWeight: '600',}}
+                color="primary" variant="contained" size="medium"onSubmit={handleFormSubmit}>Submit</Button>
               </Link>
               </CardActions>
             </div>
@@ -161,6 +186,7 @@ const Signup = () => {
       </Box>
       </div>
     </main>
+  </ThemeProvider>
   )
 };
 

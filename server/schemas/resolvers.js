@@ -14,7 +14,7 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
 
-    clinics: async (parent, args, context) => {
+    clinics: async (parent, args, contex) => {
       const clinicName = await Clinic.find(params).sort({ createdAt: -1 });
       return clinicName;
     },
