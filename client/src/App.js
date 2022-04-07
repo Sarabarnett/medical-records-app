@@ -14,6 +14,9 @@ import Footer from "./components/Footer";
 import UserDashboard from "./pages/UserDashboard";
 import Login from './components/Login';
 import Signup from "./components/Signup";
+import Vaccines from "./components/Vaccines";
+import MedicalRecords from "./components/MedicalRecords";
+import Clinics from "./components/Clinics";
 
 
 
@@ -22,15 +25,17 @@ function App() {
     <Router>
       <Header />
     
-      <AboutUs />
+      {/* <AboutUs /> */}
 
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/signup" component={Signup} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/signup" component={Signup} />
       
       <Route path="/UserDashboard">
-        <Link to="/UserDashboard">UserDashboard</Link>
         <UserDashboard />
       </Route>
+      <Route exact path="/Vaccines" component={Vaccines} />
+      <Route exact path="/MedicalRecords" component={MedicalRecords} />
+      <Route exact path="/Clinics" component={Clinics} />
       <Footer />
     </Router>
   );

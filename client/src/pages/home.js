@@ -16,7 +16,6 @@ const Homepage = () => {
 
 return(
   <main>
-    <div> <Header /> </div>
     {/*login | logout */}
     {/* <clinics, vaccines, medical records /> */}
 
