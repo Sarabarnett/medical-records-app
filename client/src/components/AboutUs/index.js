@@ -35,7 +35,7 @@ let theme = createTheme({
 });
 
 const AboutUs = () => {
-  // const classes = useStyles()
+  
 
   return (
     <ThemeProvider theme={theme}>

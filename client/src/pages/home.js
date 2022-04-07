@@ -92,7 +92,7 @@ const Homepage = () => {
                 </Box> 
               </div>
 
-              <div> 
+              {/* <div> 
                 <Box>
                   <Card>
                       <CardContent>
@@ -100,7 +100,7 @@ const Homepage = () => {
                       </CardContent>
                   </Card>
                 </Box> 
-              </div>
+              </div> */}
 
               <div>
                 {loggedIn && userData ? (
