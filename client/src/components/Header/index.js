@@ -11,6 +11,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { Menu } from "@mui/material";
 
 
+
 let theme = createTheme({
   palette: {
     // turquoise
@@ -128,7 +129,7 @@ const Header = () => {
     </AppBar>
   </Box>
 </ThemeProvider>
-  );
-};
+
+
 
 export default Header;
