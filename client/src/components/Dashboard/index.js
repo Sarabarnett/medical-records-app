@@ -1,71 +1,157 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Vaccines from "../Vaccines";
 import Clinics from "../Clinics";
 import MedicalRecords from "../MedicalRecords";
 import "../../index.css";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import CardHeader from "@mui/material/CardHeader";
+//import VaccinesOutlinedIcon from '@mui/icons-material/VaccinesOutlined';
+import PopArtImage from "../../assets/images/popart-transparent.png";
 
 let theme = createTheme({
   palette: {
     primary: {
-      main: '#28D5CF',
+      main: "#28D5CF",
     },
     secondary: {
-      main: '#F12B95',
+      main: "#F12B95",
     },
     tertiary: {
-      main: '#F7EA34',
+      main: "#F7EA34",
     },
     quaternary: {
-      main: '#F89514'
+      main: "#F89514",
     },
     quinary: {
-      main: '#607D8B',
+      main: "#607D8B",
     },
   },
-
 });
 
 const Dashboard = () => {
   return (
-  <main>
-    <>
+    <main>
       <Router>
         <Switch>
+          <Route path="/Vaccines" component={Vaccines} />
+          <Route path="/Clinics" component={Clinics} />
+          <Route path="/MedicalRecords" component={MedicalRecords} />
+
           <ThemeProvider theme={theme}>
-          <div>
-          <Box></Box>
-            <h1>Welcome "GENERIC NAME HERE"</h1>
-            <nav>
-              <ul>
-                <li>
-                  <Link style={{ textDecoration: 'none' }} to="/Vaccines">Vaccines</Link>
-                  <Route path="/Vaccines" component={Vaccines} />
-                </li>
-                <li>
-                  <Link style={{ textDecoration: 'none' }} to="/Clinics">Clinics</Link>
-                  <Route path="/Clinics" component={Clinics} />
-                </li>
-                <li>
-                  <Link style={{ textDecoration: 'none' }} to="/MedicalRecords">Medical Records</Link>
-                  <Route path="/MedicalRecords" component={MedicalRecords} />
-                </li>
-              </ul>
-            </nav>
-          </div>
+            <div>
+              <Typography
+                sx={{
+                  p: 5,
+                  fontWeight: "700",
+                }}
+                noWrap
+                variant="h2"
+                component="div"
+                color="#F7EA34"
+              >
+                Welcome back, "NAME"!
+              </Typography>
+
+              <Box>
+                <Card
+                  sx={{
+                    minWidth: 400,
+                    minHeight: 300,
+                    boxShadow: 6,
+                    border: 5,
+                    borderColor: "#28D5CF",
+                    backgroundImage: `url(${PopArtImage})`,
+                  }}
+                >
+                  <CardHeader
+                    sx={{
+                      minHeight: 100,
+                      bgcolor: "#F12B95",
+                      color: "#28D5CF",
+                      textAlign: "center",
+                    }}
+                    titleTypographyProps={{ variant: "h4" }}
+                    title="Add Info To Your Records"
+                  />
+                  <CardContent
+                    sx={{
+                      p: 5,
+                      textAlign: "center",
+                    }}
+                  >
+                    <ul className="formLinks">
+                      <li>
+                        <Link style={{ textDecoration: "none" }} to="/Vaccines">
+                          <Button
+                            sx={{
+                              m: 2,
+                              color: "white",
+                              fontSize: 22,
+                              fontWeight: "600",
+                              minWidth: "100px",
+                            }}
+                            variant="contained"
+                            color="primary"
+                            size="large"
+                          >
+                            Vaccines
+                          </Button>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link style={{ textDecoration: "none" }} to="/Clinics">
+                          <Button
+                            sx={{
+                              m: 2,
+                              color: "white",
+                              fontSize: 22,
+                              fontWeight: "600",
+                              minWidth: "100px",
+                            }}
+                            variant="contained"
+                            color="primary"
+                            size="large"
+                          >
+                            Clinics
+                          </Button>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          style={{ textDecoration: "none" }}
+                          to="/MedicalRecords"
+                        >
+                          <Button
+                            sx={{
+                              m: 2,
+                              color: "white",
+                              fontSize: 22,
+                              fontWeight: "600",
+                              minWidth: "100px",
+                            }}
+                            variant="contained"
+                            color="primary"
+                            size="large"
+                          >
+                            Medical Records
+                          </Button>
+                        </Link>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </Box>
+            </div>
           </ThemeProvider>
         </Switch>
       </Router>
-    </>
-  </main>
+    </main>
   );
 };
 
