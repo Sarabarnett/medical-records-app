@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-// import validateEmail from '../../utils/helpers.js';
-// import { useMutation } from '@apollo/client';
-// import { ADD_USER } from "../utils/mutations";
-//import Auth from '../utils/auth';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from "../../utils/mutations";
+import Auth from '../../utils/auth';
 import { Link } from "react-router-dom";
 import '../../login-signup.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -39,9 +38,8 @@ let theme = createTheme({
 function Signup() {
 
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
-  // const { username, email, password} = formState;
   const [errorMessage, setErrorMessage] = useState('');
-  // const [addUser, { error }] = useMutation(ADD_USER);
+  const [addUser, { error }] = useMutation(ADD_USER);
 
   //validate email function
   function validateEmail(email) {
@@ -82,6 +80,17 @@ function Signup() {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
+    try {
+      const { data } = await addUser({
+        variables: {...formState}
+      });
+
+      Auth.login(data.addUser.token);
+     
+    } catch (e) {
+      console.error(e);
+    }
 
     //clear form values
     setFormState({
@@ -176,12 +185,13 @@ function Signup() {
                 justifyContent: 'center'
               }}>
               <Link style={{ textDecoration: 'none' }} to="/userDashboard">
-                <Button sx={{ fontSize: 22, fontWeight: '600',}}
+                <Button sx={{ color: 'white', fontSize: 22, fontWeight: '600',}}
                 color="primary" variant="contained" size="medium"onSubmit={handleFormSubmit}>Submit</Button>
               </Link>
               </CardActions>
             </div>
          </CardContent>
+         {error && <div>Sign up failed</div>}
         </Card>
       </Box>
       </div>

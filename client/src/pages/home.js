@@ -4,6 +4,13 @@ import React from "react";
 
 import AboutUs from "../components/AboutUs";
 import Footer from "../components/Footer";
+// import Header from '../components/Header'
+import Dashboard from "../components/Dashboard";
+// import Login from '../components/Login'
+// import Signup from '../components/Signup'
+// import Vaccines from '../components/Vaccines'
+// import MedicalRecords from '../components/MedicalRecords'
+// import Clinics from '../components/Clinics'
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -45,30 +52,50 @@ let theme = createTheme({
 });
 
 const Homepage = () => {
+  // const loggedIn = Auth.loggedIn();
+  // const { data: userData } = useQuery(QUERY_USER);
+
   return (
     <ThemeProvider theme={theme}>
       <main>
-        {/* header section */}
-        <div>
-          <Box className="form" component="form" sx={{}} autoComplete="off">
-            <Card
-              sx={{
-                bgcolor: "#E1BEE7",
-                minWidth: 350,
-                boxShadow: 6,
-                border: 3,
-                borderColor: "secondary.main",
-              }}
-            >
-              <CardContent
-                sx={{
-                  p: 5,
-                  textAlign: "center",
-                }}
-              ></CardContent>
-            </Card>
-          </Box>
-        </div>
+        {/* header section
+              <div> 
+                <Box className="form"
+                      component="form"
+                      sx={{
+                      }}
+                      autoComplete="off">
+                  <Card sx={{ 
+                        bgcolor: '#E1BEE7',
+                        minWidth: 350,
+                        boxShadow: 6,
+                        border: 3,
+                        borderColor: 'secondary.main'
+                        }}>
+                      <CardContent
+                            sx={{
+                              p: 5,
+                              textAlign: 'center'
+                            }}>
+                          <Header />
+                      </CardContent>
+                  </Card>
+                </Box> 
+              </div> */}
+
+        {/* <div>
+          {loggedIn && userData ? (
+            <div>
+              <Box>
+                <Card>
+                  <CardContent>
+                    <Dashboard />
+                  </CardContent>
+                </Card>
+              </Box>
+            </div>
+          ) : null}
+        </div> */}
 
         <div>
           <AboutUs />

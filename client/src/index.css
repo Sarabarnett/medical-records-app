@@ -32,3 +32,8 @@ code {
     monospace;
 }
 
+.formLinks {
+  list-style-type: none;
+}
+
+

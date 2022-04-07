@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import validateEmail from "../../utils/helpers.js";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
-import Auth from "../utils/auth";
+import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import "../../login-signup.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -76,6 +76,16 @@ function Login() {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
 
     // clear form values
     setFormState({
@@ -176,6 +186,7 @@ function Login() {
                       </Button>
                     </Link>
                   </CardActions>
+                  {error && <div>Login failed</div>}
                 </div>
               </CardContent>
             </Card>
