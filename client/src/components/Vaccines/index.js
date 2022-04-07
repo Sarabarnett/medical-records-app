@@ -11,7 +11,7 @@ const Vaccines = ({ user }) => {
 
   const [cardForm, setCardForm] = useState({});
 
-  const { loading, data } = useQuery(GET_ME, {
+  const { data } = useQuery(GET_ME, {
     variables: { username: "joe" },
   });
   const me = data?.me || {};
