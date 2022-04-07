@@ -38,11 +38,13 @@ const typeDefs = gql`
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+
     addClinic(
       clinicName: String
       primaryDoctor: String
       PhoneNumber: int
     ): Clinic
+
     addVaccine(
       vaccineName: String
       administeredDate: String
