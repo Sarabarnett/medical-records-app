@@ -11,7 +11,7 @@ import { GET_ME } from '../../utils/queries'
 const Vaccines = ({ user }) => {
     const [vaccineForm, setVaccineForm] = useState({
         vaccineName: String,
-        clinic: [Clinic],
+      //  clinic: [Clinic],
         administeredDate: String,
         location: String
     });
@@ -148,4 +148,4 @@ const Vaccines = ({ user }) => {
     )
 };
 
-export default Vaccines
+export default Vaccines;

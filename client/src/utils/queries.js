@@ -23,4 +23,3 @@ query getclinics {
       email
     }
   }`;
-

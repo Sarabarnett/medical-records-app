@@ -17,8 +17,8 @@ const clinicSchema = new Schema({
     required: "If this is not your Primary care provider, please enter N/a",
   },
   phoneNumber: {
-    type: Int,
-    required: "Please provide a valid phone number",
+    type: String,
+    required: true
   },
   doctor: {
     type: String,

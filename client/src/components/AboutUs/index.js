@@ -1,7 +1,9 @@
 import React from 'react';
-//import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 // import Box from '@mui/material/Box';
 // import Typography from '@mui/material/Typography';
+
+
 
 const AboutUs = () => {
   // const classes = useStyles()
@@ -23,8 +25,8 @@ const AboutUs = () => {
 
       <div>
 
-        <h3>Save your existing medical information
-          <div>  </div>
+        {/* <h3>Save your existing medical information
+          <div> <img src=""></img> </div>
         </h3>
 
         <h3>Upload your vaccines
@@ -32,8 +34,8 @@ const AboutUs = () => {
         </h3>
 
         <h3>List your previous clinics
-          <div>  </div>
-        </h3>
+          <div> <img src=""></img> </div>
+        </h3> */}
 
       </div>
 

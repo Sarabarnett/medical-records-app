@@ -10,7 +10,7 @@ import {useQuery} from "@apollo/client"
 //import  { Form } from 'react-bootstrap'
 
 const Clinics = () => {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState('');
   const [addFormData, setAddFormData] = useState({
     clinicName: "",
     doctorName: "",

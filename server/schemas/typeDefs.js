@@ -42,7 +42,7 @@ const typeDefs = gql`
     addClinic(
       clinicName: String
       primaryDoctor: String
-      PhoneNumber: int
+      PhoneNumber: Int
     ): Clinic
 
     addVaccine(
