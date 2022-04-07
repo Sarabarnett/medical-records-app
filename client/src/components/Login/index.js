@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-// import validateEmail from '../../utils/helpers.js';
-// import { useMutation } from '@apollo/client';
-// import { LOGIN_USER } from "../../utils/mutations";
-//import Auth from '../utils/auth';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from "../../utils/mutations";
+// import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 import '../../login-signup.css';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -39,16 +38,15 @@ let theme = createTheme({
 function Login() {
 
   const [formState, setFormState] = useState({ email: '', password: '' });
-  // const { email, password } = formState;
   const [errorMessage, setErrorMessage] = useState('');
-  // const [login, { error }] = useMutation(LOGIN_USER);
+  const [login, { error }] = useMutation(LOGIN_USER);
 
-  //validate email function
+
+  //validate email address function
   function validateEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
-  }
-
+  };
 
   // update state based on form input changes
   const handleChange = (e) => {
@@ -69,12 +67,12 @@ function Login() {
         } 
     }
     
-    // if (!errorMessage) {
+    if (!errorMessage) {
       setFormState({
         ...formState, 
         [e.target.name]: e.target.value 
       });
-    //}
+    }
     };  
   
 
@@ -169,9 +167,11 @@ return (
                 color="secondary" variant="contained" size="medium" onSubmit={handleFormSubmit}>Submit</Button>
               </Link>
               </CardActions>
+              {error && <div>Login failed</div>}
             </div>
           </CardContent>
         </Card>
+
       </Box>
       </div>
     </main>
