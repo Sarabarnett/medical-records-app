@@ -13,7 +13,6 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-// import NineteenNinetySeven from '../../assets/fonts/NineteenNinetySeven.ttf';
 
 let theme = createTheme({
   palette: {
@@ -33,19 +32,7 @@ let theme = createTheme({
       main: '#607D8B',
     },
   },
-  typography:{
-    fontFamily: 'NineteenNinetySeven, Comic Sans',
-  },
-  // components: {
-  //   MuiCssBaseline: {
-  //     styleOverrides: `
-  //       @font-face {
-  //         font-family: 'Raleway';
-  //         font-style: normal;
-  //         src: local('NineteenNinetySeven'), url(${NineteenNinetySeven}) format('tff');
-  //       }`,
-  //     },
-  //   },
+
 });
 
 
@@ -118,23 +105,24 @@ return (
         >
         <Card 
         sx={{ 
-          bgcolor: '#A3EEEB',
+          bgcolor: '#28D5CF',
           minWidth: 350,
           boxShadow: 6,
-          border: 3,
-          borderColor: 'secondary'
-          }}>
+          border: 5,
+          borderColor: '#F12B95',
+          }}
+          >
           <CardContent
           sx={{
             p: 5,
             textAlign: 'center'
-          }}>
+          }}
+          >
           <Typography 
           sx={{ 
-            // fontFamily: 'NineteenNinetySeven',
-            color: 'secondary',
-            fontSize: 28,
-            fontWeight: 'bold'}} 
+            fontSize: 36,
+            fontWeight: '800'}} 
+            color="secondary"
             gutterBottom>
             LOGIN
           </Typography>
@@ -177,7 +165,7 @@ return (
                 justifyContent: 'center'
               }}>
               <Link style={{ textDecoration: 'none' }} to="/userDashboard">
-                <Button sx={{ fontSize: 18, fontWeight: 'medium'}}
+                <Button sx={{ fontSize: 22, fontWeight: '600'}}
                 color="secondary" variant="contained" size="medium" onSubmit={handleFormSubmit}>Submit</Button>
               </Link>
               </CardActions>
