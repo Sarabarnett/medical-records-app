@@ -28,10 +28,22 @@ export const ADD_USER = gql`
 //add_vaccine, add_xxx, add_xxx
 export const ADD_VACCINE = gql`
   mutation addVaccine($Vaccines: String!) {
-    addVaccine(Vaccine: $Vaccine) {
+    addVaccine(Vaccine: $Vaccines) {
       _id
-      createdAt
-      username
+      administeredDate
+      vaccineName
+      location
+    }
+  }
+`;
+
+export const ADD_CLINIC = gql`
+  mutation addClinic($Clinic: String!) {
+    addClinic(Clinic: $Clinic) {
+      _id
+      clinicName
+      primaryDoctor
+      phoneNumber
     }
   }
 `;
@@ -42,15 +54,6 @@ export const ADD_RECORDS = gql`
       _id
       createdAt
       username
-    }
-  }
-`;
-
-export const ADD_CLINIC = gql`
-  mutation addClinic($Clinic: String!) {
-    addClinic(Clinic: $Clinic) {
-      _id
-      createdAt
     }
   }
 `;
