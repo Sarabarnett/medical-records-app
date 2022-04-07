@@ -2,10 +2,10 @@ import React from 'react';
 // import ReactDOM from 'react-dom';
 // import { Link } from 'react-router-dom';
 import {createTheme, ThemeProvider } from '@mui/material/styles';
-// import Box from '@mui/material/Box';
-// import Card from '@mui/material/card';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
 // import CardActions from '@mui/material/CardActions';
-// import CardContent from '@mui/material/CardContent';
+import CardContent from '@mui/material/CardContent';
 // import Button from '@mui/material/Button';
 // import Typography from '@mui/material/Typography';
 // import TextField from '@mui/material/TextField';
@@ -39,37 +39,46 @@ const AboutUs = () => {
 
   return (
     <ThemeProvider theme={theme}>
-        <div>
-          <h1 >Our Cool Super Story</h1>
+       
+            <Box className="form"
+                      component="form"
+                      sx={{
+                        '& > :not(style)': { m: 1, width: '25ch' },
+                      }}
+                      autoComplete="off">
+                <Card>
+                    <CardContent>
+                    <h1 >Our Cool Super Story</h1>
 
-          <p>
-            Blah, blah, blah 
-            we came together for Project #3 despite crippling odds
-            <br></br>
-            Blah, blah, blah
-            and settled on this medical related app.
-            <br></br>
-            Blah, blah, blah
-            Here is how it works:
-          </p>
+                      <p>
+                        Blah, blah, blah 
+                        we came together for Project #3 despite crippling odds
+                        <br></br>
+                        Blah, blah, blah
+                        and settled on this medical related app.
+                        <br></br>
+                        Blah, blah, blah
+                        Here is how it works:
+                      </p>
 
-          <div>
+                      <div>
+                        <h3>Save your existing medical information
+                          <div> <img src=""></img> </div>
+                        </h3>
 
-            <h3>Save your existing medical information
-              <div> <img src=""></img> </div>
-            </h3>
+                        <h3>Upload your vaccines
+                          <div> <img src=""></img> </div>
+                        </h3>
 
-            <h3>Upload your vaccines
-              <div> <img src=""></img> </div>
-            </h3>
+                        <h3>List your previous clinics
+                          <div> <img src=""></img> </div>
+                        </h3>
+                      </div>
 
-            <h3>List your previous clinics
-              <div> <img src=""></img> </div>
-            </h3>
-
-          </div>
-
-        </div>
+                    </CardContent>
+                </Card>
+            </Box>
+    
     </ThemeProvider>
 
     
