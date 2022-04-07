@@ -17,11 +17,12 @@ function App() {
 
     <Router>
       <Header />
-      <Homepage />
-
+      
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={Signup} />
       
+      <Homepage />
+
       <Route path="/UserDashboard">
         <UserDashboard />
       </Route>

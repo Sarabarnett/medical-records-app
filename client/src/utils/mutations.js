@@ -21,7 +21,6 @@ export const ADD_USER = gql`
       }
     }
   }
-
 `;
 
 //add_vaccine, add_xxx, add_xxx

@@ -3,9 +3,9 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 
 import AboutUs from '../components/AboutUs'
-import Footer from '../components/Footer'
+//import Footer from '../components/Footer'
 // import Header from '../components/Header'
-import Dashboard from '../components/Dashboard'
+//import Dashboard from '../components/Dashboard'
 // import Login from '../components/Login'
 // import Signup from '../components/Signup'
 // import Vaccines from '../components/Vaccines'
@@ -90,7 +90,7 @@ const Homepage = () => {
                 </Box> 
               </div> */}
 
-              <div>
+              {/* <div>
                 {loggedIn && userData ? (
                   <div> 
                     <Box>
@@ -102,15 +102,15 @@ const Homepage = () => {
                     </Box> 
                   </div>
                 ) : null}
-              </div>
+              </div> */}
 
               <div> 
                    <AboutUs />
               </div>
 
-              <div> 
+              {/* <div> 
                 <Footer />
-              </div>
+              </div> */}
         </main>
       </ThemeProvider>
     )

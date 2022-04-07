@@ -6,6 +6,7 @@ query user($username: String!) {
     username
     email
   }
+}
 `;
 export const GET_CLINICS = gql`
   query clinics($username: String) {
