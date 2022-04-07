@@ -10,6 +10,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 // import TextField from '@mui/material/TextField';
 
+import buffKitty from '../../assets/images/buffy-kitty.jpg';
 
 let theme = createTheme({
   palette: {
@@ -30,6 +31,7 @@ let theme = createTheme({
     },
   },
   typography:{
+    htmlFontSize: '64rem',
     fontFamily: [
       'Permanent Marker', 
       'cursive',
@@ -62,7 +64,7 @@ const AboutUs = () => {
                           }} >
                             <Typography
                             sx={{
-                              fontFamily: 'Permanent Marker'
+                              fontFamily: 'Permanent Marker',
                             }}>
                               <h1 >Our Cool Super Story</h1>
                             </Typography>
@@ -84,12 +86,12 @@ const AboutUs = () => {
                             </Typography>
 
                             <Typography
-                            sx={{
-                              fontFamily: 'Permanent Marker'
-                            }}>
+                                sx={{
+                                  fontFamily: 'Permanent Marker',
+                                }}>
                                  <div>
                                 <h3>Save your existing medical information
-                                  <div> <img src=""></img> </div>
+                                  <div> <img src={buffKitty} alt="buffKitty" /> </div>
                                 </h3>
 
                                 <h3>Upload your vaccines
