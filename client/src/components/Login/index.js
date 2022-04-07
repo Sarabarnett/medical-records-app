@@ -32,6 +32,9 @@ let theme = createTheme({
       main: "#607D8B",
     },
   },
+  typography: {
+    fontFamily: ["Permanent Marker", "cursive", "Acme", "sans-serif"],
+  },
 });
 
 function Login() {
@@ -124,8 +127,9 @@ function Login() {
               >
                 <Typography
                   sx={{
-                    fontSize: 36,
-                    fontWeight: "800",
+                    fontSize: 40,
+                    fontWeight: "400",
+                    fontFamily: "Permanent Marker",
                   }}
                   color="secondary"
                   gutterBottom
@@ -176,7 +180,10 @@ function Login() {
                       to="/userDashboard"
                     >
                       <Button
-                        sx={{ fontSize: 22, fontWeight: "600" }}
+                        sx={{ 
+                          fontSize: 28, 
+                          fontWeight: "400",
+                          fontFamily: "Acme" }}
                         color="secondary"
                         variant="contained"
                         size="medium"

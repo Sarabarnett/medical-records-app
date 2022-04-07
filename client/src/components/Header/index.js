@@ -29,6 +29,9 @@ let theme = createTheme({
       main: "#F89514",
     },
   },
+  typography: {
+    fontFamily: ["Permanent Marker", "cursive", "Acme", "sans-serif"],
+  },
 });
 
 const Header = () => {
@@ -47,6 +50,7 @@ const Header = () => {
                 sx={{
                   p: 5,
                   fontWeight: "700",
+                  fontFamily: "Permanent Marker"
                 }}
                 noWrap
                 variant="h1"
@@ -64,6 +68,7 @@ const Header = () => {
                     sx={{
                       fontWeight: "500",
                       m: 2,
+                      fontFamily: "Acme"
                     }}
                     variant="h4"
                     color="secondary"
@@ -80,6 +85,7 @@ const Header = () => {
                     sx={{
                       fontWeight: "500",
                       m: 2,
+                      fontFamily: "Acme"
                     }}
                     variant="h4"
                     color="secondary"
@@ -90,23 +96,13 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Link style={{ textDecoration: "none" }} to="/about">
-                  <Typography
-                    sx={{
-                      fontWeight: "500",
-                      m: 2,
-                    }}
-                    variant="h4"
-                    color="primary"
-                  >
-                    About Us
-                  </Typography>
-                </Link>
                 <Link style={{ textDecoration: "none" }} to="/login">
                   <Typography
                     sx={{
                       fontWeight: "500",
                       m: 2,
+                      fontFamily: "Acme",
+                      fontSize: 40
                     }}
                     variant="h4"
                     color="secondary"
@@ -119,9 +115,11 @@ const Header = () => {
                     sx={{
                       fontWeight: "500",
                       m: 2,
+                      fontFamily: "Acme",
+                      fontSize: 40
                     }}
                     variant="h4"
-                    color="primary"
+                    color="secondary"
                   >
                     Signup
                   </Typography>

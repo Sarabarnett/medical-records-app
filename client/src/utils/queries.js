@@ -13,7 +13,6 @@ export const QUERY_USER = gql`
       }
     }
   }
-}
 `;
 export const GET_CLINICS = gql`
   query clinics($username: String) {
