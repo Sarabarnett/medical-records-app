@@ -1,25 +1,26 @@
 import React from 'react'
 
 export const EditableRow = ({editFormData, handleEditFormChange, handleCancelClick}) => {
+  console.log('ddd', editFormData)
   return (
     <tr>
         <td>
             <input type="text" 
             required="required"
              placeholder="Enter a Clinic"
-            name="clinicName"
-            value={editFormData.clinicName}
+            name="clinicname"
+            value={editFormData.clinicname}
             onChange={handleEditFormChange}
-            ></input>
+            />
         </td>
         <td>
         <input type="text" 
             required="required"
              placeholder="Enter a Doctor"
-            name="doctorName"
-            value={editFormData.doctorName}
+            name="primaryDoctor"
+            value={editFormData.primaryDoctor}
             onChange={handleEditFormChange}
-            ></input>
+            />
         </td>
         <td> <input type="text" 
         required="required"
@@ -27,7 +28,7 @@ export const EditableRow = ({editFormData, handleEditFormChange, handleCancelCli
         name="phoneNumber"
         value={editFormData.phoneNumber}
         onChange={handleEditFormChange}
-        ></input>
+        />
         </td>
         <td>
             <button type="submit">Save</button>

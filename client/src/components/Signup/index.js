@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-// import validateEmail from '../../utils/helpers.js';
-// import { useMutation } from '@apollo/client';
-// import { ADD_USER } from "../utils/mutations";
-//import Auth from '../utils/auth';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from "../../utils/mutations";
+import Auth from '../../utils/auth';
 import { Link } from "react-router-dom";
 import '../../login-signup.css';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -13,12 +13,35 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 
-const Signup = () => {
+let theme = createTheme({
+  palette: {
+    primary: {
+      main: '#28D5CF',
+    },
+    secondary: {
+      main: '#F12B95',
+    },
+    tertiary: {
+      main: '#F7EA34',
+    },
+    quaternary: {
+      main: '#F89514'
+    },
+    quinary: {
+      main: '#607D8B',
+    },
+  },
+  typography: {
+    fontFamily: ["Permanent Marker", "cursive", "Acme", "sans-serif"],
+  },
+}); 
+
+
+function Signup() {
 
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
-  // const { username, email, password} = formState;
   const [errorMessage, setErrorMessage] = useState('');
-  // const [addUser, { error }] = useMutation(ADD_USER);
+  const [addUser, { error }] = useMutation(ADD_USER);
 
   //validate email function
   function validateEmail(email) {
@@ -60,6 +83,17 @@ const Signup = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    try {
+      const { data } = await addUser({
+        variables: {...formState}
+      });
+
+      Auth.login(data.addUser.token);
+     
+    } catch (e) {
+      console.error(e);
+    }
+
     //clear form values
     setFormState({
       username: '',
@@ -69,6 +103,7 @@ const Signup = () => {
   };
 
   return(
+    <ThemeProvider theme={theme}>
     <main >
       {/* SIGNUP FORM */}
       <div>
@@ -81,11 +116,11 @@ const Signup = () => {
         >
         <Card 
         sx={{ 
+          bgcolor: '#F12B95',
           boxShadow: 6,
           minWidth: 350,
-          border: 3,
-          borderColor: 'primary.main',
-          bgcolor: '#B3E5FC' 
+          border: 5,
+          borderColor: '#28D5CF',
           }}>
           <CardContent
             sx={{
@@ -93,9 +128,12 @@ const Signup = () => {
               textAlign: 'center'
             }}>
           <Typography 
-          sx={{ fontSize: 28,
-          fontWeight: 'bold' }} 
-          gutterBottom>
+          sx={{ fontSize: 40,
+          fontWeight: "400",
+          fontFamily: "Permanent Marker"
+          }} 
+          gutterBottom
+          color="primary">
             SIGNUP
           </Typography>
           
@@ -151,16 +189,24 @@ const Signup = () => {
                 justifyContent: 'center'
               }}>
               <Link style={{ textDecoration: 'none' }} to="/userDashboard">
-                <Button sx={{ fontSize: 18, fontWeight: 'medium'}}
-                variant="contained" size="medium"onSubmit={handleFormSubmit}>Submit</Button>
+                <Button sx={{
+                   color: 'white', 
+                   fontSize: 28, 
+                   fontWeight: "400",
+                  fontFamily: "Acme"
+                  }}
+                color="primary" variant="contained" size="medium"onSubmit={handleFormSubmit}>
+                  Submit</Button>
               </Link>
               </CardActions>
             </div>
          </CardContent>
+         {error && <div>Sign up failed</div>}
         </Card>
       </Box>
       </div>
     </main>
+  </ThemeProvider>
   )
 };
 

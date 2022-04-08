@@ -2,71 +2,57 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
+    _id: String
     username: String
     email: String
     password: String
-    vaccine: [Vaccine]
+    vaccine: [Vaccines]
+    clinic: [Clinic]
   }
 
   type Clinic {
     _id: ID
-    clinicName: String
+    clinicname: String
     primaryDoctor: String
-    phoneNumber: Int
+    phoneNumber: String
   }
 
   type Vaccines {
+    _id: ID
     vaccineName: String
     clinic: String
-  }
-
-  type Query {
-    user: User
-    clinicname: String
-    createdAt: String
-    username: String
-    doctor: String
-    phonenumber: String
-  }
-
-  type Vaccine {
- vaccineName: String
- administeredDate: String
- location: String
-  }
-
-  input VaccineInput {
-    vaccineName: String
     administeredDate: String
     location: String
-
-
-  type Auth{
-    token: ID
-    user: User
   }
-  
+
   type Auth {
     token: ID!
     user: User
   }
 
   type Query {
-    user(username: String!): User
-    clinics(username: String): Clinic
-    me(username: String): User
-    clinic(_id: ID!): Clinic
-    getVaccine: Vaccine
+    me: User
+    clinics(_id: ID!): Clinic
+    vaccine: Vaccines
   }
 
-  type Mutation{
-    addUser(username: String, email: String, password: String): Auth
-    login(email: String, password: String): Auth
-    addClinic(username: String!,clinicname: String!):User
-  addVaccine: Vaccine
-  }
-  
+  type Mutation {
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
 
+    addClinic(
+      username: String
+      clinicname: String
+      primaryDoctor: String
+      phoneNumber: String
+    ): User
+
+    addVaccine(
+      vaccineName: String
+      administeredDate: String
+      location: String
+    ): Vaccines
+  }
 `;
 
 module.exports = typeDefs;
