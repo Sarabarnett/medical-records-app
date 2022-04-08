@@ -38,7 +38,7 @@ let theme = createTheme({
 const AboutUs = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Box className="form" component="form" autoComplete="off">
+      <Box>
         <Card
           sx={{
             boxShadow: 6,

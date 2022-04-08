@@ -1,33 +1,33 @@
 import React from "react";
 
-import {createTheme, ThemeProvider } from '@mui/material/styles';
+//import {createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
 
-let theme = createTheme({
-  palette: {
-    primary: {
-      main: "#28D5CF",
-    },
-    secondary: {
-      main: "#F12B95",
-    },
-    tertiary: {
-      main: "#F7EA34",
-    },
-    quaternary: {
-      main: "#F89514",
-    },
-    quinary: {
-      main: "#607D8B",
-    },
-  },
-  typography: {
-    fontFamily: ["Permanent Marker", "cursive", "Acme", "sans-serif"],
-  },
-});
+// let theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: "#28D5CF",
+//     },
+//     secondary: {
+//       main: "#F12B95",
+//     },
+//     tertiary: {
+//       main: "#F7EA34",
+//     },
+//     quaternary: {
+//       main: "#F89514",
+//     },
+//     quinary: {
+//       main: "#607D8B",
+//     },
+//   },
+//   typography: {
+//     fontFamily: ["Permanent Marker", "cursive", "Acme", "sans-serif"],
+//   },
+// });
 
 const Footer = () => {
   return (
