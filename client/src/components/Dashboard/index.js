@@ -162,7 +162,8 @@ const Dashboard = () => {
             </div>
           </ThemeProvider>
         </Switch>
-
+      
+      <div>
         <Button
           onClick={() => history.goBack()}
           sx={{
@@ -178,6 +179,7 @@ const Dashboard = () => {
         >
           Go back
         </Button>
+        </div>
       </Router>
     </main>
   );

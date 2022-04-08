@@ -41,7 +41,8 @@ const Clinics = () => {
     } else {
       setContacts(JSON.parse(clinicStorage));
     }
-  }, []);
+  },
+  );
 
   const handleAddFormChange = (event) => {
     event.preventDefault();
