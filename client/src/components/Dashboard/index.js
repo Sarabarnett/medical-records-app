@@ -11,7 +11,6 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CardHeader from "@mui/material/CardHeader";
-//import VaccinesOutlinedIcon from '@mui/icons-material/VaccinesOutlined';
 import PopArtImage from "../../assets/images/popart-transparent.png";
 import { useHistory } from "react-router-dom";
 
@@ -43,6 +42,24 @@ const Dashboard = () => {
 
   return (
     <main>
+      <div>
+        <Button
+          onClick={() => history.goBack()}
+          sx={{
+            m: 2,
+            color: "white",
+            fontSize: 22,
+            fontWeight: "600",
+            minWidth: "100px",
+            fontFamily: "Acme"
+          }}
+          variant="contained"
+          color="#F12B95"
+          size="large"
+        >
+          Go back
+        </Button>
+        </div>
       <Router>
         <Switch>
           <Route path="/Vaccines" component={Vaccines} />
@@ -56,7 +73,7 @@ const Dashboard = () => {
                   p: 5,
                   fontWeight: "400",
                   fontSize: 70,
-                  fontFamily: "Permanent Marker"
+                  fontFamily: "Permanent Marker",
                 }}
                 noWrap
                 variant="h2"
@@ -83,7 +100,6 @@ const Dashboard = () => {
                       bgcolor: "#F12B95",
                       color: "#28D5CF",
                       textAlign: "center",
-                      
                     }}
                     titleTypographyProps={{ variant: "h4", fontFamily: "Acme", fontSize: 46 }}
                     title="Add To Your Records"
@@ -162,24 +178,6 @@ const Dashboard = () => {
             </div>
           </ThemeProvider>
         </Switch>
-      
-      <div>
-        <Button
-          onClick={() => history.goBack()}
-          sx={{
-            m: 2,
-            color: "white",
-            fontSize: 22,
-            fontWeight: "600",
-            minWidth: "100px",
-          }}
-          variant="contained"
-          color="primary"
-          size="large"
-        >
-          Go back
-        </Button>
-        </div>
       </Router>
     </main>
   );

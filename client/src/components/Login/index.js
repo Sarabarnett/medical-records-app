@@ -96,6 +96,7 @@ function Login() {
   // };
   return (
     <ThemeProvider theme={theme}>
+      <main>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert
           dismissible
@@ -117,7 +118,7 @@ function Login() {
             <Card
               sx={{
                 bgcolor: "#28D5CF",
-                minWidth: 350,
+                minWidth: 400,
                 boxShadow: 6,
                 border: 5,
                 borderColor: "#F12B95",
@@ -131,13 +132,12 @@ function Login() {
               >
                 <Typography
                   sx={{
-                    fontSize: 40,
+                    fontSize: 46,
                     fontWeight: "400",
                     fontFamily: "Permanent Marker",
                   }}
                   color="secondary"
-                  gutterBottom
-                >
+                  gutterBottom>
                   LOGIN
                 </Typography>
                 <div className="form-input">
@@ -178,7 +178,7 @@ function Login() {
                     }}
                   >
                     <Button
-                      sx={{ fontSize: 22, fontWeight: "600" }}
+                      sx={{ fontSize: 28, fontWeight: "400", fontFamily: "Acme" }}
                       color="secondary"
                       variant="contained"
                       size="medium"
@@ -194,7 +194,8 @@ function Login() {
           </Box>
         </div>
       </Form>
-    </ThemeProvider>
+    </main>
+  </ThemeProvider>
   );
 }
 

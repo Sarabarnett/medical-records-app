@@ -118,7 +118,7 @@ function Signup() {
         sx={{ 
           bgcolor: '#F12B95',
           boxShadow: 6,
-          minWidth: 350,
+          minWidth: 400,
           border: 5,
           borderColor: '#28D5CF',
           }}>
@@ -128,7 +128,7 @@ function Signup() {
               textAlign: 'center'
             }}>
           <Typography 
-          sx={{ fontSize: 40,
+          sx={{ fontSize: 46,
           fontWeight: "400",
           fontFamily: "Permanent Marker"
           }} 

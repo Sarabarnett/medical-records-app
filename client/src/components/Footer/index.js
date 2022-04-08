@@ -4,7 +4,7 @@ import {createTheme, ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Typography from "@mui/material/Typography";
+
 
 let theme = createTheme({
   palette: {
@@ -31,11 +31,11 @@ let theme = createTheme({
 
 const Footer = () => {
   return (
-
+      
         <Box
               className="form"
                 component="form"
-                sx={{
+                sx={{position: 'fixed', bottom: 0, left: 0, right: 0,
                   fontFamily: "Acme",
                   fontSize: [34, "!important"],
                 }}
@@ -53,13 +53,12 @@ const Footer = () => {
                   p: 5,
                   textAlign: 'center'
                 }}>
-              <footer className="">
+              
                   <div className="container">&copy;2022 By O'CSS</div>
-              </footer>
+              
             </CardContent>
           </Card>
         </Box>
-
   );
 };
 
