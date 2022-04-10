@@ -96,6 +96,7 @@ function Login() {
   // };
   return (
     <ThemeProvider theme={theme}>
+      <main>
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         <Alert
           dismissible
@@ -194,6 +195,7 @@ function Login() {
           </Box>
         </div>
       </Form>
+      </main>
     </ThemeProvider>
   );
 }

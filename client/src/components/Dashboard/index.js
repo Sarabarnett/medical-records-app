@@ -44,6 +44,23 @@ const Dashboard = () => {
   return (
     <main>
       <Router>
+        <div>
+      <Button
+          onClick={() => history.goBack()}
+          sx={{
+            m: 2,
+            color: "white",
+            fontSize: 28,
+            fontWeight: "400",
+            fontFamily: "Acme"
+          }}
+          variant="contained"
+          color="primary"
+          size="large"
+        >
+          Go back
+        </Button>
+        </div>
         <Switch>
           <Route path="/Vaccines" component={Vaccines} />
           <Route path="/Clinics" component={Clinics} />
@@ -162,22 +179,6 @@ const Dashboard = () => {
             </div>
           </ThemeProvider>
         </Switch>
-
-        <Button
-          onClick={() => history.goBack()}
-          sx={{
-            m: 2,
-            color: "white",
-            fontSize: 22,
-            fontWeight: "600",
-            minWidth: "100px",
-          }}
-          variant="contained"
-          color="primary"
-          size="large"
-        >
-          Go back
-        </Button>
       </Router>
     </main>
   );
