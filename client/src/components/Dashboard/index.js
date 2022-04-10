@@ -42,24 +42,6 @@ const Dashboard = () => {
 
   return (
     <main>
-      <div>
-        <Button
-          onClick={() => history.goBack()}
-          sx={{
-            m: 2,
-            color: "white",
-            fontSize: 22,
-            fontWeight: "600",
-            minWidth: "100px",
-            fontFamily: "Acme"
-          }}
-          variant="contained"
-          color="#F12B95"
-          size="large"
-        >
-          Go back
-        </Button>
-        </div>
       <Router>
         <div>
       <Button
