@@ -38,6 +38,10 @@ const Footer = () => {
                 sx={{position: 'fixed', bottom: 0, left: 0, right: 0,
                   fontFamily: "Acme",
                   fontSize: [34, "!important"],
+                  position: 'fixed',
+                  bottom: 0,
+                  left: 0, 
+                  right: 0
                 }}
                 autoComplete="off">
           <Card
